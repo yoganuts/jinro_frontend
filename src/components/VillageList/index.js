@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Grid from '@material-ui/core/Grid'
 
 import Village from '../Village'
@@ -17,4 +18,9 @@ export default class VillageList extends Component {
       </Grid>
     )
   }
+}
+
+VillageList.propTypes = {
+  villages: PropTypes.array.isRequired,
+  onMount: PropTypes.func.isRequired
 }
