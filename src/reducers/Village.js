@@ -9,9 +9,6 @@ export default handleActions({
     villages: []
   }),
   RECEIVE_VILLAGES: (state, action) => ({
-    // FIXME
-    villages: [
-      { id: 1, name: 'foo' },
-    ]
+    villages: action.payload
   }),
 }, initialState)
