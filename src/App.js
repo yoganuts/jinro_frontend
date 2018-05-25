@@ -10,7 +10,7 @@ export default class App extends Component {
       <div>
         <h1>Jinro Game</h1>
         <Route exact path="/" component={Home} />
-        <Route path="/villages/:village_id" component={Village} />
+        <Route path="/villages/:villageId" component={Village} />
       </div>
     )
   }
