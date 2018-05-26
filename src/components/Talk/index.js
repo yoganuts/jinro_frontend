@@ -15,12 +15,12 @@ function Talk(props) {
   const { classes } = props
   return (
     <Card>
-      <CardContent className={props.userVillagerData.id === props.talk.villager_id ? classes.align : null}>
+      <CardContent className={props.userVillagerData.code === props.talk.villager.code ? classes.align : null}>
         <Typography variant="title">
           {props.talk.content}
         </Typography>
         <Typography color="textSecondary">
-          {props.talk.villager_id}: {props.talk.created_at}
+          {props.talk.villager.name}: {props.talk.created_at}
         </Typography>
       </CardContent>
     </Card>
@@ -31,10 +31,14 @@ Talk.propTypes = {
   talk: PropTypes.shape({
     villager_id: PropTypes.number.isRequired,
     content: PropTypes.string.isRequired,
-    created_at: PropTypes.string.isRequired
+    created_at: PropTypes.string.isRequired,
+    villager: PropTypes.shape({
+      code: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired
+    })
   }),
   userVillagerData: PropTypes.shape({
-    id: PropTypes.number.isRequired
+    code: PropTypes.string
   })
 }
 

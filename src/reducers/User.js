@@ -4,7 +4,6 @@ import { handleActions } from 'redux-actions'
 const initialState = {
   villagerData: {
     39: {
-      id: 178,
       code: 'TIC4Djz0CqOZil4Bf87EsA==',
       talkContent: ''
     },
