@@ -22,6 +22,6 @@ export default class TalkList extends Component {
 
 TalkList.propTypes = {
   talks: PropTypes.array.isRequired,
-  villageId: PropTypes.string.isRequired,
+  villageId: PropTypes.number.isRequired,
   onMount: PropTypes.func.isRequired
 }

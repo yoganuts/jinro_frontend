@@ -5,7 +5,7 @@ import * as userActions from '../../actions/User'
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   onMount() {
-    dispatch(userActions.selectVillage(ownProps.match.params.villageId))
+    dispatch(userActions.selectVillage(parseInt(ownProps.match.params.villageId, 10)))
   }
 })
 

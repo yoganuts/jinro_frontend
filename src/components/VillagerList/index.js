@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Grid from '@material-ui/core/Grid'
 
 import Villager from '../Villager'
+import VillagerForm from '../../containers/VillagerForm'
 
 export default class VillagerList extends Component {
   componentWillMount() {
@@ -17,6 +18,9 @@ export default class VillagerList extends Component {
           {this.props.villagers.map(villager => (
             <Villager key={villager.id} villager={villager} />
           ))}
+          <Grid item sm={3} xs={6}>
+            <VillagerForm />
+          </Grid>
         </Grid>
       </div>
     )
@@ -25,6 +29,6 @@ export default class VillagerList extends Component {
 
 VillagerList.propTypes = {
   villagers: PropTypes.array.isRequired,
-  villageId: PropTypes.string.isRequired,
+  villageId: PropTypes.number.isRequired,
   onMount: PropTypes.func.isRequired
 }

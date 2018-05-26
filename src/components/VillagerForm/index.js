@@ -6,29 +6,25 @@ import CardActions from '@material-ui/core/CardActions'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
-export default class TalkForm extends Component {
-  componentWillMount() {
-    this.props.onMount()
-  }
-
-  updateTalkContent(event) {
+export default class VillagerForm extends Component {
+  updateVillagerName(event) {
     this.props.onChange(event.target.value)
   }
 
-  createTalk(event) {
+  createVillager(event) {
     event.preventDefault()
-    this.props.onSubmit(this.props.userVillagerData.code, this.props.userVillagerData.talkContent)
+    this.props.onSubmit(this.props.userVillagerData.villageId, this.props.userVillagerData.name)
   }
 
   render() {
     return (
-      <form onSubmit={ (e) => this.createTalk(e) }>
+      <form onSubmit={ (e) => this.createVillager(e) }>
         <Card>
           <CardContent>
             <TextField
               fullWidth
-              placeholder="Let's talk!"
-              onChange={ (e) => this.updateTalkContent(e) }
+              placeholder="name"
+              onChange={ (e) => this.updateVillagerName(e) }
             />
           </CardContent>
           <CardActions>
@@ -36,8 +32,9 @@ export default class TalkForm extends Component {
               type="submit"
               color="primary"
               variant="raised"
+              size="small"
             >
-              Talk
+              Join
             </Button>
           </CardActions>
         </Card>
@@ -46,12 +43,11 @@ export default class TalkForm extends Component {
   }
 }
 
-TalkForm.propTypes = {
+VillagerForm.propTypes = {
   userVillagerData: PropTypes.shape({
-    code: PropTypes.string,
-    talkContent: PropTypes.string
+    villageId: PropTypes.number,
+    name: PropTypes.string
   }),
-  onMount: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired
 }
