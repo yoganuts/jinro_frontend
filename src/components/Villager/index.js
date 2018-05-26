@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
+import Badge from '@material-ui/core/Badge'
 import { withStyles } from '@material-ui/core/styles'
 
 import imgVillager from '../../images/villager.png'
@@ -14,9 +15,9 @@ const styles = {
   image: {
     display: 'flex',
     flexDirection: 'column',
-    height: 52,
-    width: 52,
-    padding: 8
+    height: 36,
+    width: 36,
+    padding: 12
   }
 }
 
@@ -27,7 +28,13 @@ function Villager(props) {
       <Card className={ classes.card }>
         <img src={imgVillager} alt={props.villager.name} className={classes.image} />
         <CardContent>
-          {props.villager.name}
+          {props.you ? (
+            <Badge color="primary" badgeContent="you">
+              {props.villager.name}
+            </Badge>
+          ) : (
+            <span>{props.villager.name}</span>
+          )}
         </CardContent>
       </Card>
     </Grid>

@@ -25,8 +25,8 @@ export const createVillager = (villageId, villagerName) => {
       name: villagerName
     }
     axios.post(process.env.REACT_APP_API_HOST + `/villages/${villageId}/villagers`, params).then((response) => {
-      dispatch(receiveVillager(response.data))
       dispatch(userActions.finishCreateVillager(response.data))
+      dispatch(receiveVillager(response.data))
     }).catch((response) => {
       console.log(response)
     })

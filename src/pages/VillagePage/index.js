@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import VillagerList from '../../containers/VillagerList'
-import Square from '../../components/Square'
+import Square from '../../containers/Square'
 
 export default class VillagePage extends Component {
   componentWillMount() {
@@ -13,8 +13,8 @@ export default class VillagePage extends Component {
     return (
       <div>
         <h2>Village</h2>
-        <Square />
         <VillagerList />
+        <Square />
       </div>
     )
   }

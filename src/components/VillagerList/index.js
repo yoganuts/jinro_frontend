@@ -16,11 +16,17 @@ export default class VillagerList extends Component {
         <h3>Villager List</h3>
         <Grid container spacing={16}>
           {this.props.villagers.map(villager => (
-            <Villager key={villager.id} villager={villager} />
+            <Villager
+              key={villager.id}
+              villager={villager}
+              you={this.props.userVillagerCode === villager.code}
+            />
           ))}
-          <Grid item sm={3} xs={6}>
-            <VillagerForm />
-          </Grid>
+          {!this.props.userVillagerCode && (
+            <Grid item sm={3} xs={6}>
+              <VillagerForm />
+            </Grid>
+          )}
         </Grid>
       </div>
     )
@@ -30,5 +36,6 @@ export default class VillagerList extends Component {
 VillagerList.propTypes = {
   villagers: PropTypes.array.isRequired,
   villageId: PropTypes.number.isRequired,
+  userVillagerCode: PropTypes.string,
   onMount: PropTypes.func.isRequired
 }

@@ -2,20 +2,7 @@ import { handleActions } from 'redux-actions'
 
 // FIXME: this is dummy data.
 const initialState = {
-  villagerData: {
-    39: {
-      villageId: 39,
-      name: 'foo',
-      code: 'TIC4Djz0CqOZil4Bf87EsA==',
-      talkContent: ''
-    },
-    40: {
-      villageId: 40,
-      name: 'bar',
-      code: 'TIC4Djz0CqOZil4Bf87EsA==',
-      talkContent: ''
-    }
-  },
+  villagerData: {},
   currentVillageId: null
 }
 

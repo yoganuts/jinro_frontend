@@ -5,7 +5,8 @@ import * as villagerActions from '../../actions/Villager'
 
 const mapStateToProps = ({ User, Villager }) => ({
   villagers: Villager.villagers,
-  villageId: User.currentVillageId
+  villageId: User.currentVillageId,
+  userVillagerCode: User.villagerData.hasOwnProperty(User.currentVillageId) ? User.villagerData[User.currentVillageId].code : null
 })
 
 const mapDispatchToProps = (dispatch) => ({
