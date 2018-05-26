@@ -8,8 +8,8 @@ export default function Square(props) {
   return (
     <div>
       <h3>Square</h3>
-      <TalkList villageId={props.villageId} />
       <TalkForm villageId={props.villageId} />
+      <TalkList villageId={props.villageId} />
     </div>
   )
 }

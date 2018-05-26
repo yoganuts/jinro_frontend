@@ -25,9 +25,8 @@ export default class TalkForm extends Component {
       <Card>
         <CardContent>
           <TextField
-            multiline
             fullWidth
-            rows={4}
+            placeholder="Let's talk!"
             onChange={ (e) => this.updateTalkContent(e) }
           />
         </CardContent>

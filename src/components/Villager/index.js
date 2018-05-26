@@ -3,13 +3,31 @@ import PropTypes from 'prop-types'
 import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
+import { withStyles } from '@material-ui/core/styles'
 
-export default function Villager(props) {
+import imgVillager from '../../images/villager.png'
+
+const styles = {
+  card: {
+    display: 'flex'
+  },
+  image: {
+    display: 'flex',
+    flexDirection: 'column',
+    height: 52,
+    width: 52,
+    padding: 8
+  }
+}
+
+function Villager(props) {
+  const { classes } = props
   return (
-    <Grid item sm={6} xs={12}>
-      <Card>
+    <Grid item sm={3} xs={6}>
+      <Card className={ classes.card }>
+        <img src={imgVillager} alt={props.villager.name} className={classes.image} />
         <CardContent>
-          name: {props.villager.name}
+          {props.villager.name}
         </CardContent>
       </Card>
     </Grid>
@@ -21,3 +39,5 @@ Villager.propTypes = {
     name: PropTypes.string.isRequired
   })
 }
+
+export default withStyles(styles)(Villager)

@@ -13,7 +13,7 @@ export default class VillagerList extends Component {
     return (
       <div>
         <h3>Villager List</h3>
-        <Grid container>
+        <Grid container spacing={16}>
           {this.props.villagers.map(villager => (
             <Villager key={villager.id} villager={villager} />
           ))}

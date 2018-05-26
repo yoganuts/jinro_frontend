@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 
 const styles = {
   image: {
-    height: '240px',
+    height: 240,
   }
 }
 
