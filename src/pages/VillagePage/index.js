@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import VillagerList from '../../containers/VillagerList'
 import Square from '../../components/Square'
 
-export default function Village(props) {
+export default function VillagePage(props) {
   return (
     <div>
       <h2>Village</h2>
@@ -14,7 +14,7 @@ export default function Village(props) {
   )
 }
 
-Village.propTypes = {
+VillagePage.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
       villageId: PropTypes.string.isRequired
