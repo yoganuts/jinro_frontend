@@ -11,4 +11,7 @@ export default handleActions({
   RECEIVE_TALKS: (state, action) => ({
     talks: action.payload
   }),
+  RECEIVE_TALK: (state, action) => ({
+    talks: [action.payload, ...state.talks,]
+  })
 }, initialState)

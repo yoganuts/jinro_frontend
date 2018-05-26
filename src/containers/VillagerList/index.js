@@ -3,8 +3,7 @@ import { connect } from 'react-redux'
 import VillagerList from '../../components/VillagerList'
 import * as actions from '../../actions/Villager'
 
-const mapStateToProps = ({ Villager, User }, ownProps) => ({
-  userVillagerCode: User.villager_codes.hasOwnProperty(ownProps.villageId) ? User.villager_codes[ownProps.villageId] : null,
+const mapStateToProps = ({ Villager }, ownProps) => ({
   villagers: Villager.villagers,
 })
 

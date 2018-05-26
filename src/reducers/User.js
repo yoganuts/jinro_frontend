@@ -1,9 +1,25 @@
 import { handleActions } from 'redux-actions'
 
-// FIXME: 2: 'foo' is dummy data.
+// FIXME: this is dummy data.
 const initialState = {
-  villager_codes: { 39: 'TIC4Djz0CqOZil4Bf87EsA==' }
+  villagerData: {
+    39: {
+      code: 'TIC4Djz0CqOZil4Bf87EsA==',
+      talkContent: ''
+    }
+  }
 }
 
 export default handleActions({
+  CHANGE_TALK_CONTENT: (state, action) => {
+    // FIXME
+    return ({
+      villagerData: {
+        39: {
+          code: 'TIC4Djz0CqOZil4Bf87EsA==',
+          talkContent: action.payload
+        }
+      }
+    })
+  }
 }, initialState)

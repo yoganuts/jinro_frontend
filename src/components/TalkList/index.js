@@ -12,7 +12,7 @@ export default class TalkList extends Component {
     return (
       <div>
         <h4>TalkList</h4>
-        {this.props.talks.map(talk => (
+        {this.props.talks.reverse().map(talk => (
           <Talk key={talk.id} talk={talk} />
         ))}
       </div>

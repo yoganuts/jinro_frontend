@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Cable from 'actioncable'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import CardActions from '@material-ui/core/CardActions'
@@ -8,47 +7,17 @@ import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
 export default class TalkForm extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      talkContent: ''
-    }
+  componentWillMount() {
+    this.props.onMount()
   }
 
   updateTalkContent(event) {
-    this.setState({
-      talkContent: event.target.value
-    })
+    this.props.onChange(event.target.value)
   }
 
-  createSocket() {
-    let cable = Cable.createConsumer(process.env.REACT_APP_SOCKET_PATH)
-    this.talks = cable.subscriptions.create({
-      channel: 'TalkChannel'
-    }, {
-      connected: () => {},
-      received: (data) => {
-        console.log(data)
-      },
-      create: function(userVillagerCode, talkContent) {
-        this.perform('create', {
-          code: userVillagerCode,
-          content: talkContent
-        })
-      }
-    })
-  }
-
-  componentWillMount() {
-    this.createSocket()
-  }
-
-  sendTalk(event) {
+  createTalk(event) {
     event.preventDefault()
-    this.talks.create(this.props.userVillagerCode, this.state.talkContent)
-    this.setState({
-      talkContent: ''
-    })
+    this.props.onSubmit(this.props.userVillagerData.code, this.props.userVillagerData.talkContent)
   }
 
   render() {
@@ -66,7 +35,7 @@ export default class TalkForm extends Component {
           <Button
             color="primary"
             variant="raised"
-            onClick={ (e) => this.sendTalk(e) }
+            onClick={ (e) => this.createTalk(e) }
           >
             Talk
           </Button>
@@ -77,5 +46,11 @@ export default class TalkForm extends Component {
 }
 
 TalkForm.propTypes = {
-  userVillagerCode: PropTypes.string.isRequired
+  userVillagerData: PropTypes.shape({
+    code: PropTypes.string,
+    talkContent: PropTypes.string
+  }),
+  onMount: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
 }
