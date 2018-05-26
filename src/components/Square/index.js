@@ -2,14 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import TalkList from '../../containers/TalkList'
-import TalkForm from '../TalkForm'
+import TalkForm from '../../containers/TalkForm'
 
 export default function Square(props) {
   return (
     <div>
       <h3>Square</h3>
       <TalkList villageId={props.villageId} />
-      <TalkForm />
+      <TalkForm villageId={props.villageId} />
     </div>
   )
 }
