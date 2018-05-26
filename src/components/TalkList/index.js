@@ -5,7 +5,7 @@ import Talk from '../Talk'
 export default function TalkList(props) {
   return (
     <div>
-      TalkList
+      <h4>TalkList</h4>
       <Talk />
     </div>
   )
