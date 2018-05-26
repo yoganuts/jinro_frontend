@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 
 import VillageList from '../../components/VillageList'
-import * as actions from '../../actions/Village'
+import * as villageActions from '../../actions/Village'
 
 const mapStateToProps = ({ Village }) => ({
   villages: Village.villages,
@@ -9,7 +9,7 @@ const mapStateToProps = ({ Village }) => ({
 
 const mapDispatchToProps = dispatch => ({
   onMount() {
-    dispatch(actions.fetchVillages())
+    dispatch(villageActions.fetchVillages())
   },
 })
 

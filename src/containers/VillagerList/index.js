@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 
 import VillagerList from '../../components/VillagerList'
-import * as actions from '../../actions/Villager'
+import * as villagerActions from '../../actions/Villager'
 
 const mapStateToProps = ({ User, Villager }) => ({
   villagers: Villager.villagers,
@@ -10,7 +10,7 @@ const mapStateToProps = ({ User, Villager }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onMount(villageId) {
-    dispatch(actions.fetchVillagers(villageId))
+    dispatch(villagerActions.fetchVillagers(villageId))
   },
 })
 

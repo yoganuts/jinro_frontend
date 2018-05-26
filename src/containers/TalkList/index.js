@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 
 import TalkList from '../../components/TalkList'
-import * as actions from '../../actions/Talk'
+import * as talkActions from '../../actions/Talk'
 
 const mapStateToProps = ({ User, Talk }) => ({
   talks: Talk.talks,
@@ -10,7 +10,7 @@ const mapStateToProps = ({ User, Talk }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onMount(villageId) {
-    dispatch(actions.fetchTalks(villageId))
+    dispatch(talkActions.fetchTalks(villageId))
   }
 })
 
