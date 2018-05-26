@@ -22,24 +22,25 @@ export default class TalkForm extends Component {
 
   render() {
     return (
-      <Card>
-        <CardContent>
-          <TextField
-            fullWidth
-            placeholder="Let's talk!"
-            onChange={ (e) => this.updateTalkContent(e) }
-          />
-        </CardContent>
-        <CardActions>
-          <Button
-            color="primary"
-            variant="raised"
-            onClick={ (e) => this.createTalk(e) }
-          >
-            Talk
-          </Button>
-        </CardActions>
-      </Card>
+      <form onSubmit={ (e) => this.createTalk(e) }>
+        <Card>
+          <CardContent>
+            <TextField
+              fullWidth
+              placeholder="Let's talk!"
+              onChange={ (e) => this.updateTalkContent(e) }
+            />
+          </CardContent>
+          <CardActions>
+            <Button
+              color="primary"
+              variant="raised"
+            >
+              Talk
+            </Button>
+          </CardActions>
+        </Card>
+      </form>
     )
   }
 }
