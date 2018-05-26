@@ -9,7 +9,7 @@ export default function Village(props) {
     <div>
       <h2>Village</h2>
       <VillagerList villageId={props.match.params.villageId} />
-      <Square />
+      <Square villageId={props.match.params.villageId} />
     </div>
   )
 }

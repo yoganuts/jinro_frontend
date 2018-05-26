@@ -11,11 +11,14 @@ export default class VillageList extends Component {
 
   render() {
     return (
-      <Grid container>
-        {this.props.villages.map(village => (
-          <Village key={village.id} village={village} />
-        ))}
-      </Grid>
+      <div>
+        <h3>Village List</h3>
+        <Grid container>
+          {this.props.villages.map(village => (
+            <Village key={village.id} village={village} />
+          ))}
+        </Grid>
+      </div>
     )
   }
 }
