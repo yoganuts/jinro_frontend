@@ -30,7 +30,8 @@ function Talk(props) {
 Talk.propTypes = {
   talk: PropTypes.shape({
     villager_id: PropTypes.number.isRequired,
-    content: PropTypes.string.isRequired
+    content: PropTypes.string.isRequired,
+    created_at: PropTypes.string.isRequired
   }),
   userVillagerData: PropTypes.shape({
     id: PropTypes.number.isRequired

@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom'
 
 import Header from './components/Header'
 import HomePage from './pages/HomePage'
-import VillagePage from './pages/VillagePage'
+import VillagePage from './containers/VillagePage'
 
 export default class App extends Component {
   render () {

@@ -3,13 +3,14 @@ import { connect } from 'react-redux'
 import VillagerList from '../../components/VillagerList'
 import * as actions from '../../actions/Villager'
 
-const mapStateToProps = ({ Villager }, ownProps) => ({
+const mapStateToProps = ({ User, Villager }) => ({
   villagers: Villager.villagers,
+  villageId: User.currentVillageId
 })
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  onMount() {
-    dispatch(actions.fetchVillagers(ownProps.villageId))
+const mapDispatchToProps = (dispatch) => ({
+  onMount(villageId) {
+    dispatch(actions.fetchVillagers(villageId))
   },
 })
 

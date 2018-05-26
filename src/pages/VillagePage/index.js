@@ -1,23 +1,25 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import VillagerList from '../../containers/VillagerList'
 import Square from '../../components/Square'
 
-export default function VillagePage(props) {
-  return (
-    <div>
-      <h2>Village</h2>
-      <Square villageId={props.match.params.villageId} />
-      <VillagerList villageId={props.match.params.villageId} />
-    </div>
-  )
+export default class VillagePage extends Component {
+  componentWillMount() {
+    this.props.onMount()
+  }
+
+  render() {
+    return (
+      <div>
+        <h2>Village</h2>
+        <Square />
+        <VillagerList />
+      </div>
+    )
+  }
 }
 
 VillagePage.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      villageId: PropTypes.string.isRequired
-    })
-  })
+  onMount: PropTypes.func.isRequired
 }

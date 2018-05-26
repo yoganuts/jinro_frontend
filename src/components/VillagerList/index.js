@@ -6,7 +6,7 @@ import Villager from '../Villager'
 
 export default class VillagerList extends Component {
   componentWillMount() {
-    this.props.onMount()
+    this.props.onMount(this.props.villageId)
   }
 
   render() {
@@ -25,5 +25,6 @@ export default class VillagerList extends Component {
 
 VillagerList.propTypes = {
   villagers: PropTypes.array.isRequired,
+  villageId: PropTypes.string.isRequired,
   onMount: PropTypes.func.isRequired
 }

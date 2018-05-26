@@ -7,21 +7,23 @@ const initialState = {
       id: 178,
       code: 'TIC4Djz0CqOZil4Bf87EsA==',
       talkContent: ''
-    }
-  }
+    },
+  },
+  currentVillageId: null
 }
 
 export default handleActions({
   CHANGE_TALK_CONTENT: (state, action) => {
-    // FIXME
-    return ({
-      villagerData: {
-        39: {
-          id: 178,
-          code: 'TIC4Djz0CqOZil4Bf87EsA==',
-          talkContent: action.payload
-        }
-      }
+    const villagerData = Object.assign({}, state.villagerData[state.currentVillageId], {
+      talkContent: action.payload
     })
-  }
+    return (Object.assign({}, state, {
+      villagerData: {
+        [state.currentVillageId]: villagerData
+      }
+    }))
+  },
+  SELECT_VILLAGE: (state, action) => (Object.assign({}, state, {
+    currentVillageId: action.payload
+  }))
 }, initialState)

@@ -4,8 +4,8 @@ import TalkForm from '../../components/TalkForm'
 import * as talkActions from '../../actions/Talk'
 import * as userActions from '../../actions/User'
 
-const mapStateToProps = ({ User }, ownProps) => ({
-  userVillagerData: User.villagerData.hasOwnProperty(ownProps.villageId) ? User.villagerData[ownProps.villageId] : {}
+const mapStateToProps = ({ User }) => ({
+  userVillagerData: User.villagerData.hasOwnProperty(User.currentVillageId) ? User.villagerData[User.currentVillageId] : {}
 })
 
 const mapDispatchToProps = (dispatch) => ({

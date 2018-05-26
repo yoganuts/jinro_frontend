@@ -5,7 +5,7 @@ import Talk from '../../containers/Talk'
 
 export default class TalkList extends Component {
   componentWillMount() {
-    this.props.onMount()
+    this.props.onMount(this.props.villageId)
   }
 
   render() {
@@ -13,7 +13,7 @@ export default class TalkList extends Component {
       <div>
         <h4>TalkList</h4>
         {this.props.talks.map(talk => (
-          <Talk key={talk.id} talk={talk} villageId={this.props.villageId} />
+          <Talk key={talk.id} talk={talk} />
         ))}
       </div>
     )
