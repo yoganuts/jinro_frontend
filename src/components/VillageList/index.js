@@ -14,9 +14,9 @@ export default class VillageList extends Component {
       <div>
         <h3>Village List</h3>
         <Grid container spacing={16}>
-          {this.props.villages.map(village => (
+          {this.props.villages.map(village =>
             <Village key={village.id} village={village} />
-          ))}
+          )}
         </Grid>
       </div>
     )

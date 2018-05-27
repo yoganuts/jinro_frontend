@@ -5,7 +5,7 @@ import * as talkActions from '../../actions/Talk'
 
 const mapStateToProps = ({ User, Talk }) => ({
   talks: Talk.talks,
-  villageId: User.currentVillageId
+  user: User
 })
 
 const mapDispatchToProps = (dispatch) => ({

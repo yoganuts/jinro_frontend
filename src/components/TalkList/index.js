@@ -5,16 +5,16 @@ import Talk from '../../containers/Talk'
 
 export default class TalkList extends Component {
   componentWillMount() {
-    this.props.onMount(this.props.villageId)
+    this.props.onMount(this.props.user.villageId)
   }
 
   render() {
     return (
       <div>
         <h4>TalkList</h4>
-        {this.props.talks.map(talk => (
+        {this.props.talks.map(talk =>
           <Talk key={talk.id} talk={talk} />
-        ))}
+        )}
       </div>
     )
   }
@@ -22,6 +22,8 @@ export default class TalkList extends Component {
 
 TalkList.propTypes = {
   talks: PropTypes.array.isRequired,
-  villageId: PropTypes.number.isRequired,
+  user: PropTypes.shape({
+    villageId: PropTypes.number.isRequired,
+  }),
   onMount: PropTypes.func.isRequired
 }

@@ -8,14 +8,16 @@ export default function Square(props) {
   return (
     <div>
       <h3>Square</h3>
-      {props.userVillagerCode && (
+      {props.user.villagerCode &&
         <TalkForm />
-      )}
+      }
       <TalkList />
     </div>
   )
 }
 
 Square.propTypes = {
-  userVillagerCode: PropTypes.string
+  user: PropTypes.shape({
+    villagerCode: PropTypes.string
+  })
 }

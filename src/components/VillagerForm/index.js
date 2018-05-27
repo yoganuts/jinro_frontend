@@ -13,7 +13,7 @@ export default class VillagerForm extends Component {
 
   createVillager(event) {
     event.preventDefault()
-    this.props.onSubmit(this.props.user.villageCode, this.props.user.villagerCode)
+    this.props.onSubmit(this.props.user.villageId, this.props.user.villagerName)
   }
 
   render() {
@@ -45,8 +45,8 @@ export default class VillagerForm extends Component {
 
 VillagerForm.propTypes = {
   user: PropTypes.shape({
-    villageCode: PropTypes.string,
-    villagerCode: PropTypes.string
+    villageId: PropTypes.number,
+    villagerName: PropTypes.string
   }),
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired

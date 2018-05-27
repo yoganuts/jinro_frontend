@@ -7,7 +7,7 @@ import VillagerForm from '../../containers/VillagerForm'
 
 export default class VillagerList extends Component {
   componentWillMount() {
-    this.props.onMount(this.props.villageId)
+    this.props.onMount(this.props.user.villageId)
   }
 
   render() {
@@ -15,18 +15,18 @@ export default class VillagerList extends Component {
       <div>
         <h3>Villager List</h3>
         <Grid container spacing={16}>
-          {this.props.villagers.map(villager => (
+          {this.props.villagers.map(villager =>
             <Villager
               key={villager.id}
               villager={villager}
               you={this.props.userVillagerCode === villager.code}
             />
-          ))}
-          {!this.props.userVillagerCode && (
+          )}
+          {!this.props.user.villagerCode &&
             <Grid item sm={3} xs={6}>
               <VillagerForm />
             </Grid>
-          )}
+          }
         </Grid>
       </div>
     )
@@ -35,7 +35,9 @@ export default class VillagerList extends Component {
 
 VillagerList.propTypes = {
   villagers: PropTypes.array.isRequired,
-  villageId: PropTypes.number.isRequired,
-  userVillagerCode: PropTypes.string,
+  user: PropTypes.shape({
+    villageId: PropTypes.number.isRequired,
+    villagerCode: PropTypes.string
+  }),
   onMount: PropTypes.func.isRequired
 }
