@@ -12,7 +12,7 @@ export default class VillagePage extends Component {
   render() {
     return (
       <div>
-        <h2>Village</h2>
+        <h2>{this.props.village.name}</h2>
         <VillagerList />
         <Square />
       </div>
