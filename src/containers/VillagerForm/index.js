@@ -5,15 +5,15 @@ import * as villagerActions from '../../actions/Villager'
 import * as userActions from '../../actions/User'
 
 const mapStateToProps = ({ User }) => ({
-  userVillagerData: User.villagerData.hasOwnProperty(User.currentVillageId) ? User.villagerData[User.currentVillageId] : {}
+  user: User
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  onChange(content) {
-    dispatch(userActions.changeVillagerName(content))
+  onChange(villagerName) {
+    dispatch(userActions.changeVillagerName(villagerName))
   },
-  onSubmit(villageId, villagerName) {
-    dispatch(villagerActions.createVillager(villageId, villagerName))
+  onSubmit(villageCode, villagerName) {
+    dispatch(villagerActions.createVillager(villageCode, villagerName))
   }
 })
 
