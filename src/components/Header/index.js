@@ -21,7 +21,7 @@ function Header(props) {
     <AppBar position="static" color="default">
       <Toolbar>
         <img src={logo} alt="jinro chat" className={classes.logo} />
-        <Button color="inherit" component={Link} to="/">
+        <Button color="inherit" component={Link} to={`${process.env.REACT_APP_PUBLIC_URL}/`}>
           <Typography variant="title" color="inherit">
             Jinro Chat
           </Typography>

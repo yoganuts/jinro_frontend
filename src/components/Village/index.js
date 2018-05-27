@@ -32,7 +32,7 @@ function Village(props) {
             variant="outlined"
             color="primary"
             component={Link}
-            to={`/villages/${props.village.id}`}
+            to={`${process.env.REACT_APP_PUBLIC_URL}/villages/${props.village.id}`}
           >
             Enter
           </Button>

@@ -10,8 +10,8 @@ export default class App extends Component {
     return (
       <div>
         <Header />
-        <Route exact path="/" component={HomePage} />
-        <Route path="/villages/:villageId" component={VillagePage} />
+        <Route exact path={`${process.env.REACT_APP_PUBLIC_URL}/`} component={HomePage} />
+        <Route path={`${process.env.REACT_APP_PUBLIC_URL}/villages/:villageId`} component={VillagePage} />
       </div>
     )
   }
