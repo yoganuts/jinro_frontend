@@ -13,7 +13,7 @@ export default class VillagerList extends Component {
   render() {
     return (
       <div>
-        <h3>Villager List</h3>
+        <h3>村人一覧(chat member)</h3>
         <Grid container spacing={16}>
           {this.props.villagers.map(villager =>
             <Villager

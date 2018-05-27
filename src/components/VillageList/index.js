@@ -12,7 +12,7 @@ export default class VillageList extends Component {
   render() {
     return (
       <div>
-        <h3>Village List</h3>
+        <h3>村一覧(chat room list)</h3>
         <Grid container spacing={16}>
           {this.props.villages.map(village =>
             <Village key={village.id} village={village} />

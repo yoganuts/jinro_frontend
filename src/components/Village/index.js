@@ -34,7 +34,7 @@ function Village(props) {
             component={Link}
             to={`${process.env.REACT_APP_PUBLIC_URL}/villages/${props.village.id}`}
           >
-            Enter
+            入村する
           </Button>
         </CardActions>
       </Card>

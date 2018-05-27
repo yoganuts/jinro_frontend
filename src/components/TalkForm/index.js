@@ -27,7 +27,7 @@ export default class TalkForm extends Component {
           <CardContent>
             <TextField
               fullWidth
-              placeholder="Let's talk!"
+              placeholder="証言を入力(Let's talk!)"
               onChange={ (e) => this.updateTalkContent(e) }
             />
           </CardContent>
@@ -37,7 +37,7 @@ export default class TalkForm extends Component {
               color="primary"
               variant="raised"
             >
-              Talk
+              話す
             </Button>
           </CardActions>
         </Card>

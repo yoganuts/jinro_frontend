@@ -17,7 +17,7 @@ const theme = createMuiTheme({
     primary: blueGrey
   },
   typography: {
-    fontFamily: ['Roboto', 'Helvetica', 'Arial', 'sans-serif']
+    fontFamily: ['Sawarabi Mincho', 'Roboto', 'Helvetica', 'Arial', 'sans-serif']
   }
 })
 
