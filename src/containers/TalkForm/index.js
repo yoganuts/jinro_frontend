@@ -9,8 +9,8 @@ const mapStateToProps = ({ User }) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  onMount() {
-    dispatch(talkActions.createSocket())
+  onMount(villageId) {
+    dispatch(talkActions.createSocket(villageId))
   },
   onChange(talkContent) {
     dispatch(userActions.changeTalkContent(talkContent))

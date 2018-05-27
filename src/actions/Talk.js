@@ -17,11 +17,12 @@ export const fetchTalks = (villageId) => {
   }
 }
 
-export const createSocket = () => {
+export const createSocket = (villageId) => {
   return (dispatch, getState) => {
     let cable = Cable.createConsumer(process.env.REACT_APP_SOCKET_PATH)
     this.talks = cable.subscriptions.create({
-      channel: 'TalkChannel'
+      channel: 'TalkChannel',
+      village: villageId
     }, {
       connected: () => {},
       received: (data) => {

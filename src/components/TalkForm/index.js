@@ -8,7 +8,7 @@ import Button from '@material-ui/core/Button'
 
 export default class TalkForm extends Component {
   componentWillMount() {
-    this.props.onMount()
+    this.props.onMount(this.props.user.villageId)
   }
 
   updateTalkContent(event) {
@@ -48,6 +48,7 @@ export default class TalkForm extends Component {
 
 TalkForm.propTypes = {
   user: PropTypes.shape({
+    villageId: PropTypes.number,
     villagerCode: PropTypes.string,
     talkContent: PropTypes.string
   }),
