@@ -17,7 +17,7 @@ export default class TalkForm extends Component {
 
   createTalk(event) {
     event.preventDefault()
-    this.props.onSubmit(this.props.userVillagerData.code, this.props.userVillagerData.talkContent)
+    this.props.onSubmit(this.props.user.villagerCode, this.props.user.talkContent)
   }
 
   render() {
@@ -47,8 +47,8 @@ export default class TalkForm extends Component {
 }
 
 TalkForm.propTypes = {
-  userVillagerData: PropTypes.shape({
-    code: PropTypes.string,
+  user: PropTypes.shape({
+    villagerCode: PropTypes.string,
     talkContent: PropTypes.string
   }),
   onMount: PropTypes.func.isRequired,

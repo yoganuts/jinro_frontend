@@ -5,15 +5,15 @@ import * as talkActions from '../../actions/Talk'
 import * as userActions from '../../actions/User'
 
 const mapStateToProps = ({ User }) => ({
-  userVillagerData: User.villagerData.hasOwnProperty(User.currentVillageId) ? User.villagerData[User.currentVillageId] : {}
+  user: User
 })
 
 const mapDispatchToProps = (dispatch) => ({
   onMount() {
     dispatch(talkActions.createSocket())
   },
-  onChange(content) {
-    dispatch(userActions.changeTalkContent(content))
+  onChange(talkContent) {
+    dispatch(userActions.changeTalkContent(talkContent))
   },
   onSubmit(villagerCode, talkContent) {
     dispatch(talkActions.createTalk(villagerCode, talkContent))
