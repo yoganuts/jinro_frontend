@@ -19,7 +19,7 @@ export default class VillagerList extends Component {
             <Villager
               key={villager.id}
               villager={villager}
-              you={this.props.userVillagerCode === villager.code}
+              you={this.props.user.villagerCode === villager.code}
             />
           )}
           {!this.props.user.villagerCode &&
