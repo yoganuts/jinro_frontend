@@ -23,8 +23,11 @@ function Village(props) {
       <Card>
         <img src={require(`../../images/village0${imageNo}.jpeg`)} className={classes.image} alt={props.village.name} />
         <CardContent>
-          <Typography variant="headline">
+          <Typography variant="title">
             {props.village.name}
+          </Typography>
+          <Typography variant="subheading">
+            村民：{props.village.villagers.length}名
           </Typography>
         </CardContent>
         <CardActions>
