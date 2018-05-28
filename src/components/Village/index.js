@@ -17,11 +17,10 @@ const styles = {
 
 function Village(props) {
   const { classes } = props
-  const imageNo = Math.floor(Math.random() * 4) + 1
   return (
     <Grid item sm={3} xs={6}>
       <Card>
-        <img src={require(`../../images/village0${imageNo}.jpeg`)} className={classes.image} alt={props.village.name} />
+        <img src={require(`../../images/village/${String(props.village.image_no).padStart(2, "0")}.jpeg`)} className={classes.image} alt={props.village.name} />
         <CardContent>
           <Typography variant="title">
             {props.village.name}
@@ -48,7 +47,9 @@ function Village(props) {
 Village.propTypes = {
   village: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired,
+    image_no: PropTypes.number.isRequired,
+    villagers: PropTypes.array.isRequired
   })
 }
 

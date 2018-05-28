@@ -6,8 +6,6 @@ import CardContent from '@material-ui/core/CardContent'
 import Badge from '@material-ui/core/Badge'
 import { withStyles } from '@material-ui/core/styles'
 
-import imgVillager from '../../images/villager.png'
-
 const styles = {
   card: {
     display: 'flex'
@@ -26,7 +24,7 @@ function Villager(props) {
   return (
     <Grid item sm={3} xs={6}>
       <Card className={ classes.card }>
-        <img src={imgVillager} alt={props.villager.name} className={classes.image} />
+        <img src={require(`../../images/villager/${String(props.villager.image_no).padStart(2, "0")}.png`)} alt={props.villager.name} className={classes.image} />
         <CardContent>
           {props.you ? (
             <Badge color="primary" badgeContent="you">
@@ -43,7 +41,8 @@ function Villager(props) {
 
 Villager.propTypes = {
   villager: PropTypes.shape({
-    name: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired,
+    image_no: PropTypes.number.isRequired
   })
 }
 
