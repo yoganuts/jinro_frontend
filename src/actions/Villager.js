@@ -1,5 +1,6 @@
 import { createAction } from 'redux-actions'
 import axios from 'axios'
+import Cable from 'actioncable'
 
 import * as userActions from './User'
 
@@ -18,6 +19,21 @@ export const fetchVillagers = (villageId) => {
   }
 }
 
+export const createSocket = (villageId) => {
+  return (dispatch, getState) => {
+    let cable = Cable.createConsumer(process.env.REACT_APP_SOCKET_PATH)
+    this.villagers = cable.subscriptions.create({
+      channel: 'VillagerChannel',
+      village_id: villageId
+    }, {
+      connected: () => {},
+      received: (data) => {
+        dispatch(receiveVillager(data))
+      }
+    })
+  }
+}
+
 export const createVillager = (villageId, villagerName) => {
   return async (dispatch, getState) => {
     const params = {
@@ -26,7 +42,6 @@ export const createVillager = (villageId, villagerName) => {
     }
     axios.post(process.env.REACT_APP_API_HOST + `/villages/${villageId}/villagers`, params).then((response) => {
       dispatch(userActions.finishCreateVillager(response.data))
-      dispatch(receiveVillager(response.data))
     }).catch((response) => {
       console.log(response)
     })

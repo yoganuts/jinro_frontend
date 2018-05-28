@@ -9,6 +9,9 @@ const mapStateToProps = ({ User }) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
+  onMount(villageId) {
+    dispatch(villagerActions.createSocket(villageId))
+  },
   onChange(villagerName) {
     dispatch(userActions.changeVillagerName(villagerName))
   },

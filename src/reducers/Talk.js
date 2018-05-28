@@ -14,7 +14,7 @@ export default handleActions({
   RECEIVE_TALK: (state, action) => {
     const exist = state.talks.some(talk => talk.id === action.payload.id)
     return {
-      talks: exist ? state.talks : [action.payload, ...state.talks,]
+      talks: exist ? state.talks : [action.payload, ...state.talks]
     }
   }
 }, initialState)

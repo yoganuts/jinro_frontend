@@ -7,6 +7,10 @@ import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
 export default class VillagerForm extends Component {
+  componentWillMount() {
+    this.props.onMount(this.props.user.villageId)
+  }
+
   updateVillagerName(event) {
     this.props.onChange(event.target.value)
   }
@@ -48,6 +52,7 @@ VillagerForm.propTypes = {
     villageId: PropTypes.number,
     villagerName: PropTypes.string
   }),
+  onMount: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired
 }
