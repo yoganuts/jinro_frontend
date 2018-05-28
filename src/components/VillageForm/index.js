@@ -7,6 +7,10 @@ import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
 export default class VillageForm extends Component {
+  componentWillMount() {
+    this.props.onMount()
+  }
+
   updateVillageName(event) {
     this.props.onVillageChange(event.target.value)
   }
@@ -27,6 +31,7 @@ export default class VillageForm extends Component {
           <CardContent>
             <TextField
               fullWidth
+              required
               placeholder="village name"
               onChange={ (e) => this.updateVillageName(e) }
             />
@@ -34,6 +39,7 @@ export default class VillageForm extends Component {
           <CardContent>
             <TextField
               fullWidth
+              required
               placeholder="your name"
               onChange={ (e) => this.updateVillagerName(e) }
             />
@@ -59,6 +65,7 @@ VillageForm.propTypes = {
     villageName: PropTypes.string,
     villagerName: PropTypes.string
   }),
+  onMount: PropTypes.func.isRequired,
   onVillageChange: PropTypes.func.isRequired,
   onVillagerChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired
