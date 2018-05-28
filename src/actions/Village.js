@@ -45,11 +45,12 @@ export const createSocket = () => {
   }
 }
 
-export const createVillage = (villageName, villagerName) => {
+export const createVillage = (villageName, villagerName, villageImageNo, villagerImageNo) => {
   return async (dispatch, getState) => {
     const params = {
       name: villageName,
-      villagers_attributes: [{ name: villagerName }]
+      image_no: villageImageNo,
+      villagers_attributes: [{ name: villagerName, image_no: villagerImageNo }]
     }
     axios.post(process.env.REACT_APP_API_HOST + `/villages`, params).then((response) => {
       dispatch(userActions.finishCreateVillager(response.data.villagers[0]))

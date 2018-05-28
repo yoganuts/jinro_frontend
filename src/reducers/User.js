@@ -4,6 +4,8 @@ const initialState = {
   villageId: null,
   villagerCode: null,
   villageName: null,
+  villageImageNo: "0",
+  villagerImageNo: "0",
   villagerName: null,
   talkContent: null
 }
@@ -36,6 +38,12 @@ export default handleActions({
   }),
   CHANGE_VILLAGER_NAME: (state, action) => Object.assign({}, state, {
     villagerName: action.payload
+  }),
+  CHANGE_VILLAGE_IMAGE: (state, action) => Object.assign({}, state, {
+    villageImageNo: action.payload
+  }),
+  CHANGE_VILLAGER_IMAGE: (state, action) => Object.assign({}, state, {
+    villagerImageNo: action.payload
   }),
   CHANGE_TALK_CONTENT: (state, action) => Object.assign({}, state, {
     talkContent: action.payload

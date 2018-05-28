@@ -18,8 +18,14 @@ const mapDispatchToProps = (dispatch) => ({
   onVillagerChange(villagerName) {
     dispatch(userActions.changeVillagerName(villagerName))
   },
-  onSubmit(villageId, villageName) {
-    dispatch(villageActions.createVillage(villageId, villageName))
+  onVillageImageChange(imageNo) {
+    dispatch(userActions.changeVillageImage(imageNo))
+  },
+  onVillagerImageChange(imageNo) {
+    dispatch(userActions.changeVillagerImage(imageNo))
+  },
+  onSubmit(villageId, villageName, villageImageNo, villagerImageNo) {
+    dispatch(villageActions.createVillage(villageId, villageName, villageImageNo, villagerImageNo))
   }
 })
 
