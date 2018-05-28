@@ -22,7 +22,7 @@ export const createSocket = (villageId) => {
     let cable = Cable.createConsumer(process.env.REACT_APP_SOCKET_PATH)
     this.talks = cable.subscriptions.create({
       channel: 'TalkChannel',
-      village: villageId
+      village_id: villageId
     }, {
       connected: () => {},
       received: (data) => {
@@ -30,7 +30,7 @@ export const createSocket = (villageId) => {
       },
       create: function(villagerCode, talkContent) {
         this.perform('create', {
-          villagerCode: villagerCode,
+          villager_code: villagerCode,
           content: talkContent
         })
       }
