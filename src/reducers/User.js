@@ -3,6 +3,7 @@ import { handleActions } from 'redux-actions'
 const initialState = {
   villageId: null,
   villagerCode: null,
+  villageName: null,
   villagerName: null,
   talkContent: null
 }
@@ -24,15 +25,18 @@ export default handleActions({
     villagerName: null,
     talkContent: null
   }),
-  CHANGE_VILLAGER_NAME: (state, action) => Object.assign({}, state, {
-    villagerName: action.payload
-  }),
   FINISH_CREATE_VILLAGER: (state, action) => {
     saveCode(action.payload.village_id, action.payload.code)
     return Object.assign({}, state, {
       villagerCode: action.payload.code
     })
   },
+  CHANGE_VILLAGE_NAME: (state, action) => Object.assign({}, state, {
+    villageName: action.payload
+  }),
+  CHANGE_VILLAGER_NAME: (state, action) => Object.assign({}, state, {
+    villagerName: action.payload
+  }),
   CHANGE_TALK_CONTENT: (state, action) => Object.assign({}, state, {
     talkContent: action.payload
   })
