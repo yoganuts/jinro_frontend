@@ -6,8 +6,8 @@ import VillageForm from '../../containers/VillageForm'
 export default function HomePage(props) {
   return (
     <div>
-      <VillageList />
       <VillageForm />
+      <VillageList />
     </div>
   )
 }
