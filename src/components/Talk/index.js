@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Avatar from '@material-ui/core/Avatar'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
+import moment from 'moment'
 import { withStyles } from '@material-ui/core/styles'
 
 const styles = {
@@ -25,7 +26,7 @@ function Talk(props) {
       {!you && villagerAvatar}
       <ListItemText
         primary={props.talk.content}
-        secondary={`${props.talk.villager.name}: {props.talk.created_at}`}
+        secondary={`${props.talk.villager.name}: ${moment(props.talk.created_at).format("MM/DD h:mm")}`}
         className={you ? classes.align : null}
       />
       {you && villagerAvatar}
