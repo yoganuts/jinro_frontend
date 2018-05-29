@@ -34,8 +34,8 @@ class VillageList extends Component {
     const { classes } = this.props
     return (
       <div className={classes.root}>
-        <GridList cellHeight={180} className={classes.gridList}>
-          <GridListTile key="Subheader" style={{ height: 'auto' }} cols={2}>
+        <GridList cellHeight={180} className={classes.gridList} cols={1}>
+          <GridListTile key="Subheader" style={{ height: 'auto' }}>
             <ListSubheader component="div">村一覧(chat room list)</ListSubheader>
           </GridListTile>
           {this.props.villages.map(village =>
