@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
-import CardActions from '@material-ui/core/CardActions'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
@@ -22,26 +22,30 @@ export default class TalkForm extends Component {
 
   render() {
     return (
-      <form onSubmit={ (e) => this.createTalk(e) }>
-        <Card>
-          <CardContent>
-            <TextField
-              fullWidth
-              placeholder="証言を入力(Let's talk!)"
-              onChange={ (e) => this.updateTalkContent(e) }
-            />
-          </CardContent>
-          <CardActions>
-            <Button
-              type="submit"
-              color="primary"
-              variant="raised"
-            >
-              話す
-            </Button>
-          </CardActions>
-        </Card>
-      </form>
+      <Card>
+        <CardContent>
+            <form onSubmit={ (e) => this.createTalk(e) }>
+              <Grid container>
+                <Grid item xs={9} sm={9}>
+                  <TextField
+                    fullWidth
+                    placeholder="証言を入力(Let's talk!)"
+                    onChange={ (e) => this.updateTalkContent(e) }
+                  />
+                </Grid>
+                <Grid item xs={3} sm={3}>
+                  <Button
+                    type="submit"
+                    color="primary"
+                    variant="raised"
+                  >
+                    話す
+                  </Button>
+                </Grid>
+              </Grid>
+            </form>
+        </CardContent>
+      </Card>
     )
   }
 }
