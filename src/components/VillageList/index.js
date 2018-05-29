@@ -6,7 +6,7 @@ import GridListTileBar from '@material-ui/core/GridListTileBar'
 import ListSubheader from '@material-ui/core/ListSubheader'
 import Button from '@material-ui/core/Button'
 import EnterIcon from '@material-ui/icons/DirectionsWalk'
-import Slide from '@material-ui/core/Slide'
+import Fade from '@material-ui/core/Fade'
 import { Link } from 'react-router-dom'
 import { withStyles } from '@material-ui/core/styles'
 
@@ -40,7 +40,7 @@ class VillageList extends Component {
             <ListSubheader component="div">村一覧(chat room list)</ListSubheader>
           </GridListTile>
           {this.props.villages.map(village =>
-            <Slide direction="left" in={true} key={village.id}>
+            <Fade in={true} {...{timeout: 2000}} key={village.id}>
               <GridListTile>
                 <img
                   src={require(`../../images/village/${String(village.image_no).padStart(2, "0")}.jpeg`)}
@@ -60,7 +60,7 @@ class VillageList extends Component {
                   }
                 />
               </GridListTile>
-            </Slide>
+            </Fade>
           )}
         </GridList>
       </div>

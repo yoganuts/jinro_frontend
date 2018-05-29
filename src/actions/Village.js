@@ -12,7 +12,7 @@ const receiveVillage = createAction('RECEIVE_VILLAGE')
 export const fetchVillages = () => {
   return async (dispatch, getState) => {
     dispatch(startFetchVillages())
-    axios.get(process.env.REACT_APP_API_HOST + '/villages').then((response) => {
+    axios.get(process.env.REACT_APP_API_HOST + '/villages?q[s]=created_at+desc').then((response) => {
       dispatch(receiveVillages(response.data))
     }).catch((response) => {
       console.log(response)
