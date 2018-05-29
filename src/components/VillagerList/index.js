@@ -1,20 +1,29 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Grid from '@material-ui/core/Grid'
+import { withStyles } from '@material-ui/core/styles'
 
 import Villager from '../Villager'
 import VillagerForm from '../../containers/VillagerForm'
 
-export default class VillagerList extends Component {
+const styles = {
+  root: {
+    display: 'flex',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+  },
+}
+
+class VillagerList extends Component {
   componentWillMount() {
     this.props.onMount(this.props.user.villageId)
   }
 
   render() {
+    const { classes } = this.props
     return (
       <div>
         <h3>村人一覧(chat member)</h3>
-        <Grid container spacing={16}>
+        <div className={classes.root}>
           {this.props.villagers.map(villager =>
             <Villager
               key={villager.id}
@@ -23,11 +32,9 @@ export default class VillagerList extends Component {
             />
           )}
           {!this.props.user.villagerCode &&
-            <Grid item sm={3} xs={6}>
-              <VillagerForm />
-            </Grid>
+            <VillagerForm />
           }
-        </Grid>
+        </div>
       </div>
     )
   }
@@ -41,3 +48,5 @@ VillagerList.propTypes = {
   }),
   onMount: PropTypes.func.isRequired
 }
+
+export default withStyles(styles)(VillagerList)
