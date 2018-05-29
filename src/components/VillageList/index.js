@@ -6,6 +6,7 @@ import GridListTileBar from '@material-ui/core/GridListTileBar'
 import ListSubheader from '@material-ui/core/ListSubheader'
 import Button from '@material-ui/core/Button'
 import EnterIcon from '@material-ui/icons/DirectionsWalk'
+import Slide from '@material-ui/core/Slide'
 import { Link } from 'react-router-dom'
 import { withStyles } from '@material-ui/core/styles'
 
@@ -39,25 +40,27 @@ class VillageList extends Component {
             <ListSubheader component="div">村一覧(chat room list)</ListSubheader>
           </GridListTile>
           {this.props.villages.map(village =>
-            <GridListTile key={village.id}>
-              <img
-                src={require(`../../images/village/${String(village.image_no).padStart(2, "0")}.jpeg`)}
-                alt={village.name}
-              />
-              <GridListTileBar
-                title={village.name}
-                subtitle={`村民：${village.villagers.length}名`}
-                actionIcon= {
-                  <Button
-                    component={Link}
-                    to={`${process.env.REACT_APP_PUBLIC_URL}/villages/${village.id}`}
-                    className={classes.enterButton}
-                  >
-                    <EnterIcon />入る
-                  </Button>
-                }
-              />
-            </GridListTile>
+            <Slide direction="left" in={true} key={village.id}>
+              <GridListTile>
+                <img
+                  src={require(`../../images/village/${String(village.image_no).padStart(2, "0")}.jpeg`)}
+                  alt={village.name}
+                />
+                <GridListTileBar
+                  title={village.name}
+                  subtitle={`村民：${village.villagers.length}名`}
+                  actionIcon= {
+                    <Button
+                      component={Link}
+                      to={`${process.env.REACT_APP_PUBLIC_URL}/villages/${village.id}`}
+                      className={classes.enterButton}
+                    >
+                      <EnterIcon />入る
+                    </Button>
+                  }
+                />
+              </GridListTile>
+            </Slide>
           )}
         </GridList>
       </div>
