@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Card from '@material-ui/core/Card'
-import CardContent from '@material-ui/core/CardContent'
-import Typography from '@material-ui/core/Typography'
+import Avatar from '@material-ui/core/Avatar'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemText from '@material-ui/core/ListItemText'
 import { withStyles } from '@material-ui/core/styles'
 
 const styles = {
@@ -13,17 +13,23 @@ const styles = {
 
 function Talk(props) {
   const { classes } = props
+  const you = props.user.villagerCode === props.talk.villager.code
+  const villagerAvatar = (
+    <Avatar
+      src={require(`../../images/villager/${String(props.talk.villager.image_no).padStart(2, "0")}.png`)}
+      alt={props.talk.villager.name}
+    />
+  )
   return (
-    <Card>
-      <CardContent className={props.user.villagerCode === props.talk.villager.code ? classes.align : null}>
-        <Typography variant="title">
-          {props.talk.content}
-        </Typography>
-        <Typography color="textSecondary">
-          {props.talk.villager.name}: {props.talk.created_at}
-        </Typography>
-      </CardContent>
-    </Card>
+    <ListItem>
+      {!you && villagerAvatar}
+      <ListItemText
+        primary={props.talk.content}
+        secondary={`${props.talk.villager.name}: {props.talk.created_at}`}
+        className={you ? classes.align : null}
+      />
+      {you && villagerAvatar}
+    </ListItem>
   )
 }
 
