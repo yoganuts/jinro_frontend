@@ -1,11 +1,11 @@
 {
   "main.css": "static/css/main.fbe2b424.css",
   "main.css.map": "static/css/main.fbe2b424.css.map",
-  "main.js": "static/js/main.f144493e.js",
-  "main.js.map": "static/js/main.f144493e.js.map",
-  "static/media/jinro.svg": "static/media/jinro.a782390f.svg",
-  "static/media/village01.jpeg": "static/media/village01.a8cbd298.jpeg",
-  "static/media/village02.jpeg": "static/media/village02.5f196e08.jpeg",
-  "static/media/village03.jpeg": "static/media/village03.3d8b6e3f.jpeg",
-  "static/media/village04.jpeg": "static/media/village04.512e14ec.jpeg"
+  "main.js": "static/js/main.cf632c87.js",
+  "main.js.map": "static/js/main.cf632c87.js.map",
+  "static/media/00.jpeg": "static/media/00.a8cbd298.jpeg",
+  "static/media/01.jpeg": "static/media/01.5f196e08.jpeg",
+  "static/media/02.jpeg": "static/media/02.3d8b6e3f.jpeg",
+  "static/media/03.jpeg": "static/media/03.512e14ec.jpeg",
+  "static/media/jinro.svg": "static/media/jinro.a782390f.svg"
 }
