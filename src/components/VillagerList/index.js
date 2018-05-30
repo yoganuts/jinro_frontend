@@ -10,7 +10,7 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     flexWrap: 'wrap',
-  },
+  }
 }
 
 class VillagerList extends Component {

@@ -14,8 +14,8 @@ import { withStyles } from '@material-ui/core/styles'
 const styles = {
   add: {
     position: 'fixed',
-    bottom: 20,
-    right: 20,
+    bottom: 25,
+    right: 25,
     zIndex: 999
   },
   form: {
@@ -26,10 +26,6 @@ const styles = {
   imageVillage: {
     width: 96,
     height: 48,
-  },
-  imageAvatar: {
-    width: 36,
-    height: 36,
   }
 }
 
@@ -83,7 +79,7 @@ class VillageForm extends Component {
   render() {
     const { classes } = this.props
     if (!this.state.addForm) {
-      return <Button mini variant="fab" color="primary" className={classes.add} onClick={ (e) => this.clickAdd() }><AddIcon /></Button>
+      return <Button variant="fab" color="primary" className={classes.add} onClick={ (e) => this.clickAdd() }><AddIcon /></Button>
     }
     return (
       <div className={classes.form}>
@@ -227,7 +223,7 @@ class VillageForm extends Component {
             </CardContent>
           </Card>
         </Slide>
-        <Button mini variant="fab" color="secondary" className={classes.add} onClick={ (e) => this.clickAddCancel() }><CancelIcon /></Button>
+        <Button variant="fab" color="secondary" className={classes.add} onClick={ (e) => this.clickAddCancel() }><CancelIcon /></Button>
       </div>
     )
   }

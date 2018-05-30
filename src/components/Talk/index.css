@@ -1,6 +1,7 @@
 .talk {
   padding-left: 8px !important;
   padding-right: 8px !important;
+  align-items: initial !important;
 }
 
 .talk h3 {
