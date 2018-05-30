@@ -9,7 +9,7 @@ const receiveTalk = createAction('RECEIVE_TALK')
 export const fetchTalks = (villageId) => {
   return async (dispatch, getState) => {
     dispatch(startFetchTalks())
-    axios.get(process.env.REACT_APP_API_HOST + `/villages/${villageId}/talks`).then((response) => {
+    axios.get(process.env.REACT_APP_API_HOST + `/villages/${villageId}/talks?q[s]=created_at+desc`).then((response) => {
       dispatch(receiveTalks(response.data))
     }).catch((response) => {
       console.log(response)

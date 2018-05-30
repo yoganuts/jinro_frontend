@@ -11,8 +11,7 @@ export default class TalkList extends Component {
   render() {
     return (
       <div>
-        <h4>証言履歴(chat history)</h4>
-        {this.props.talks.map(talk =>
+        {this.props.talks.slice().reverse().map(talk =>
           <Talk key={talk.id} talk={talk} />
         )}
       </div>

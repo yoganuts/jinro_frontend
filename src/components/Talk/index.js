@@ -5,8 +5,16 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import moment from 'moment'
 import { withStyles } from '@material-ui/core/styles'
+import classNames from 'classnames'
+
+import './index.css'
 
 const styles = {
+  avatar: {
+    height: 32,
+    width: 32,
+    backgroundColor: 'white'
+  },
   align: {
     textAlign: 'right'
   }
@@ -19,17 +27,18 @@ function Talk(props) {
     <Avatar
       src={require(`../../images/villager/${String(props.talk.villager.image_no).padStart(2, "0")}.png`)}
       alt={props.talk.villager.name}
+      className={classes.avatar}
     />
   )
+  const talkClasses = classNames('talk', { 'talk-you': you })
   return (
-    <ListItem>
+    <ListItem className={talkClasses}>
       {!you && villagerAvatar}
       <ListItemText
         primary={props.talk.content}
         secondary={`${props.talk.villager.name}: ${moment(props.talk.created_at).format("MM/DD h:mm")}`}
         className={you ? classes.align : null}
       />
-      {you && villagerAvatar}
     </ListItem>
   )
 }

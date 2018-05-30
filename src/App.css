@@ -1,1 +1,7 @@
-.wf-sawarabimincho { font-family: 'Sawarabi Mincho'; }
+body {
+  margin: 0px;
+}
+
+.wf-sawarabimincho {
+  font-family: 'Sawarabi Mincho';
+}

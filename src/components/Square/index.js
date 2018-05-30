@@ -7,11 +7,10 @@ import TalkForm from '../../containers/TalkForm'
 export default function Square(props) {
   return (
     <div>
-      <h3>広場(chat space)</h3>
+      <TalkList />
       {props.user.villagerCode &&
         <TalkForm />
       }
-      <TalkList />
     </div>
   )
 }
