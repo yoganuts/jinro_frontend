@@ -8,16 +8,20 @@ import Button from '@material-ui/core/Button'
 import Radio from '@material-ui/core/Radio'
 import AddIcon from '@material-ui/icons/Add'
 import CancelIcon from '@material-ui/icons/Close'
-import Fade from '@material-ui/core/Fade'
+import Slide from '@material-ui/core/Slide'
 import { withStyles } from '@material-ui/core/styles'
 
 const styles = {
   add: {
-    marginTop: 10,
-    marginBottom: 10
+    position: 'fixed',
+    bottom: 20,
+    right: 20,
+    zIndex: 999
   },
-  cancel: {
-    marginBottom: 20
+  form: {
+    position: 'fixed',
+    bottom: 0,
+    zIndex: 999
   },
   imageVillage: {
     width: 96,
@@ -82,147 +86,149 @@ class VillageForm extends Component {
       return <Button mini variant="fab" color="primary" className={classes.add} onClick={ (e) => this.clickAdd() }><AddIcon /></Button>
     }
     return (
-      <Fade in={this.state.addForm}>
-        <Card>
-          <CardContent>
-            <form onSubmit={ (e) => this.createVillage(e) }>
-              <Button mini variant="fab" color="secondary" className={classes.cancel} onClick={ (e) => this.clickAddCancel() }><CancelIcon /></Button>
-              <Grid container spacing={16}>
-                <Grid item xs={12} sm={3}>
-                  <TextField
-                    label="Village Name"
-                    required
-                    onChange={ (e) => this.updateVillageName(e) }
-                  />
-                </Grid>
-
-                <Grid item xs={12} sm={9} container>
-                  <Grid item xs={12} sm={6}>
-                    <label>
-                      <Radio
-                        name="village-image-no"
-                        value="0"
-                        checked={this.props.user.villageImageNo === "0"}
-                        onChange={ (e) => this.updateVillageImageNo(e) }
-                      />
-                      <img src={require('../../images/village/00.jpeg')} className={classes.imageVillage} alt="" />
-                    </label>
-                    <label>
-                      <Radio
-                        name="village-image-no"
-                        value="1"
-                        checked={this.props.user.villageImageNo === "1"}
-                        onChange={ (e) => this.updateVillageImageNo(e) }
-                      />
-                      <img src={require('../../images/village/01.jpeg')} className={classes.imageVillage} alt="" />
-                    </label>
+      <div className={classes.form}>
+        <Slide in={this.state.addForm} direction="up">
+          <Card>
+            <CardContent>
+              <form onSubmit={ (e) => this.createVillage(e) }>
+                <Grid container spacing={16}>
+                  <Grid item xs={12} sm={3}>
+                    <TextField
+                      label="Village Name"
+                      required
+                      onChange={ (e) => this.updateVillageName(e) }
+                    />
                   </Grid>
+
+                  <Grid item xs={12} sm={9} container>
+                    <Grid item xs={12} sm={6}>
+                      <label>
+                        <Radio
+                          name="village-image-no"
+                          value="0"
+                          checked={this.props.user.villageImageNo === "0"}
+                          onChange={ (e) => this.updateVillageImageNo(e) }
+                        />
+                        <img src={require('../../images/village/00.jpeg')} className={classes.imageVillage} alt="" />
+                      </label>
+                      <label>
+                        <Radio
+                          name="village-image-no"
+                          value="1"
+                          checked={this.props.user.villageImageNo === "1"}
+                          onChange={ (e) => this.updateVillageImageNo(e) }
+                        />
+                        <img src={require('../../images/village/01.jpeg')} className={classes.imageVillage} alt="" />
+                      </label>
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <label>
+                        <Radio
+                          name="village-image-no"
+                          value="2"
+                          checked={this.props.user.villageImageNo === "2"}
+                          onChange={ (e) => this.updateVillageImageNo(e) }
+                        />
+                        <img src={require('../../images/village/02.jpeg')} className={classes.imageVillage} alt="" />
+                      </label>
+                      <label>
+                        <Radio
+                          name="village-image-no"
+                          value="3"
+                          checked={this.props.user.villageImageNo === "3"}
+                          onChange={ (e) => this.updateVillageImageNo(e) }
+                        />
+                        <img src={require('../../images/village/03.jpeg')} className={classes.imageVillage} alt="" />
+                      </label>
+                    </Grid>
+                  </Grid>
+
+                  <Grid item xs={12} sm={3}>
+                    <TextField
+                      label="Your Name"
+                      required
+                      onChange={ (e) => this.updateVillagerName(e) }
+                    />
+                  </Grid>
+
+                  <Grid item xs={12} sm={9} container>
+                    <Grid item xs={12} sm={6}>
+                      <label>
+                        <Radio
+                          name="villager-image-no"
+                          value="0"
+                          checked={this.props.user.villagerImageNo === "0"}
+                          onChange={ (e) => this.updateVillagerImageNo(e) }
+                        />
+                        <img src={require('../../images/villager/00.png')} alt="" />
+                      </label>
+                      <label>
+                        <Radio
+                          name="villager-image-no"
+                          value="1"
+                          checked={this.props.user.villagerImageNo === "1"}
+                          onChange={ (e) => this.updateVillagerImageNo(e) }
+                        />
+                        <img src={require('../../images/villager/01.png')} alt="" />
+                      </label>
+                      <label>
+                        <Radio
+                          name="villager-image-no"
+                          value="2"
+                          checked={this.props.user.villagerImageNo === "2"}
+                          onChange={ (e) => this.updateVillagerImageNo(e) }
+                        />
+                        <img src={require('../../images/villager/02.png')} alt="" />
+                      </label>
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                      <label>
+                        <Radio
+                          name="villager-image-no"
+                          value="3"
+                          checked={this.props.user.villagerImageNo === "3"}
+                          onChange={ (e) => this.updateVillagerImageNo(e) }
+                        />
+                        <img src={require('../../images/villager/03.png')} alt="" />
+                      </label>
+                      <label>
+                        <Radio
+                          name="villager-image-no"
+                          value="4"
+                          checked={this.props.user.villagerImageNo === "4"}
+                          onChange={ (e) => this.updateVillagerImageNo(e) }
+                        />
+                        <img src={require('../../images/villager/04.png')} alt="" />
+                      </label>
+                      <label>
+                        <Radio
+                          name="villager-image-no"
+                          value="5"
+                          checked={this.props.user.villagerImageNo === "5"}
+                          onChange={ (e) => this.updateVillagerImageNo(e) }
+                        />
+                        <img src={require('../../images/villager/05.png')} alt="" />
+                      </label>
+                    </Grid>
+                  </Grid>
+
                   <Grid item xs={12} sm={6}>
-                    <label>
-                      <Radio
-                        name="village-image-no"
-                        value="2"
-                        checked={this.props.user.villageImageNo === "2"}
-                        onChange={ (e) => this.updateVillageImageNo(e) }
-                      />
-                      <img src={require('../../images/village/02.jpeg')} className={classes.imageVillage} alt="" />
-                    </label>
-                    <label>
-                      <Radio
-                        name="village-image-no"
-                        value="3"
-                        checked={this.props.user.villageImageNo === "3"}
-                        onChange={ (e) => this.updateVillageImageNo(e) }
-                      />
-                      <img src={require('../../images/village/03.jpeg')} className={classes.imageVillage} alt="" />
-                    </label>
+                    <Button
+                      type="submit"
+                      color="primary"
+                      variant="raised"
+                      size="small"
+                    >
+                      村作成
+                    </Button>
                   </Grid>
                 </Grid>
-
-                <Grid item xs={12} sm={3}>
-                  <TextField
-                    label="Your Name"
-                    required
-                    onChange={ (e) => this.updateVillagerName(e) }
-                  />
-                </Grid>
-
-                <Grid item xs={12} sm={9} container>
-                  <Grid item xs={12} sm={6}>
-                    <label>
-                      <Radio
-                        name="villager-image-no"
-                        value="0"
-                        checked={this.props.user.villagerImageNo === "0"}
-                        onChange={ (e) => this.updateVillagerImageNo(e) }
-                      />
-                      <img src={require('../../images/villager/00.png')} alt="" />
-                    </label>
-                    <label>
-                      <Radio
-                        name="villager-image-no"
-                        value="1"
-                        checked={this.props.user.villagerImageNo === "1"}
-                        onChange={ (e) => this.updateVillagerImageNo(e) }
-                      />
-                      <img src={require('../../images/villager/01.png')} alt="" />
-                    </label>
-                    <label>
-                      <Radio
-                        name="villager-image-no"
-                        value="2"
-                        checked={this.props.user.villagerImageNo === "2"}
-                        onChange={ (e) => this.updateVillagerImageNo(e) }
-                      />
-                      <img src={require('../../images/villager/02.png')} alt="" />
-                    </label>
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <label>
-                      <Radio
-                        name="villager-image-no"
-                        value="3"
-                        checked={this.props.user.villagerImageNo === "3"}
-                        onChange={ (e) => this.updateVillagerImageNo(e) }
-                      />
-                      <img src={require('../../images/villager/03.png')} alt="" />
-                    </label>
-                    <label>
-                      <Radio
-                        name="villager-image-no"
-                        value="4"
-                        checked={this.props.user.villagerImageNo === "4"}
-                        onChange={ (e) => this.updateVillagerImageNo(e) }
-                      />
-                      <img src={require('../../images/villager/04.png')} alt="" />
-                    </label>
-                    <label>
-                      <Radio
-                        name="villager-image-no"
-                        value="5"
-                        checked={this.props.user.villagerImageNo === "5"}
-                        onChange={ (e) => this.updateVillagerImageNo(e) }
-                      />
-                      <img src={require('../../images/villager/05.png')} alt="" />
-                    </label>
-                  </Grid>
-                </Grid>
-
-                <Grid item xs={12} sm={6}>
-                  <Button
-                    type="submit"
-                    color="primary"
-                    variant="raised"
-                    size="small"
-                  >
-                    村作成
-                  </Button>
-                </Grid>
-              </Grid>
-            </form>
-          </CardContent>
-        </Card>
-      </Fade>
+              </form>
+            </CardContent>
+          </Card>
+        </Slide>
+        <Button mini variant="fab" color="secondary" className={classes.add} onClick={ (e) => this.clickAddCancel() }><CancelIcon /></Button>
+      </div>
     )
   }
 }
