@@ -22,7 +22,6 @@ class VillagerList extends Component {
     const { classes } = this.props
     return (
       <div>
-        <h3>村人一覧(chat member)</h3>
         <div className={classes.root}>
           {this.props.villagers.map(villager =>
             <Villager
