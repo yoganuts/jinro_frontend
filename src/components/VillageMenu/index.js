@@ -30,7 +30,7 @@ function VillageMenu(props) {
                 <AddIcon />
               </IconButton>
               <Typography>
-                入村
+                村人
               </Typography>
             </CardContent>
           </Card>

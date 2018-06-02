@@ -4,7 +4,7 @@ import Fade from '@material-ui/core/Fade'
 
 import HomeHeader from '../../components/HomeHeader'
 import VillageList from '../../containers/VillageList'
-import VillageForm from '../../containers/VillageForm'
+import VillageNew from '../../containers/VillageNew'
 
 export default function HomePage(props) {
   return (
@@ -13,7 +13,7 @@ export default function HomePage(props) {
         <Fade in={true}>
           <div>
             <HomeHeader />
-            <VillageForm />
+            <VillageNew />
             <VillageList />
           </div>
         </Fade>
