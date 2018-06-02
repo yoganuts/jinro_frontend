@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Fade from '@material-ui/core/Fade'
 import { withStyles } from '@material-ui/core/styles'
@@ -8,26 +8,51 @@ import VillageList from '../../containers/VillageList'
 import VillageNew from '../../containers/VillageNew'
 
 const styles = {
-  space: {
-    marginBottom: 120
+  list: {
+    marginTop: 36,
   }
 }
 
-function HomePage(props) {
-  const { classes } = props
-  return (
-    <Fragment>
-      {props.user.initialized &&
-        <Fade in={true}>
-          <div className={classes.space}>
-            <HomeHeader />
-            <VillageNew />
-            <VillageList />
-          </div>
-        </Fade>
-      }
-    </Fragment>
-  )
+class HomePage extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      showForm: false,
+    }
+  }
+
+  toggleForm() {
+    this.setState({
+      showForm: !this.state.showForm,
+    })
+  }
+
+  closeForm() {
+    this.setState({
+      showForm: false,
+    })
+  }
+
+  render() {
+    const { classes } = this.props
+    return (
+      <Fragment>
+        {this.props.user.initialized &&
+          <Fade in={true}>
+            <div>
+              <HomeHeader showForm={this.state.showForm} toggleForm={ () => this.toggleForm() } />
+              <div className={classes.list}>
+                {this.state.showForm &&
+                  <VillageNew closeForm={ () => this.closeForm() } />
+                }
+                <VillageList />
+              </div>
+            </div>
+          </Fade>
+        }
+      </Fragment>
+    )
+  }
 }
 
 HomePage.propTypes = {
