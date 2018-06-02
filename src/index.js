@@ -16,9 +16,9 @@ const theme = createMuiTheme({
   palette: {
     primary: blueGrey
   },
-  typography: {
-    fontFamily: ['Sawarabi Mincho', 'Roboto', 'Helvetica', 'Arial', 'sans-serif']
-  }
+//  typography: {
+//    fontFamily: ['Roboto', 'Helvetica', 'Arial', 'sans-serif']
+//  }
 })
 
 ReactDOM.render(
