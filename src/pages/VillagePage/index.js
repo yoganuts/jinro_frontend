@@ -16,6 +16,7 @@ const styles = {
     paddingTop: 20,
     backgroundSize: 'auto 100%',
     backgroundPosition: 'bottom',
+    backgroundAttachment: 'fixed',
   }
 }
 
