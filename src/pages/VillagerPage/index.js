@@ -16,13 +16,23 @@ import { Link } from 'react-router-dom'
 import VillagerNew from '../../containers/VillagerNew'
 
 const styles = {
+  root: {
+    top: 0,
+    position: 'fixed',
+    width: '100%',
+    zIndex: 999,
+  },
   toolbar: {
-    minHeight: 36
+    minHeight: 36,
+    justifyContent: 'space-between',
   },
   icon: {
     width: 36,
-    height: 36
-  }
+    height: 36,
+  },
+  list: {
+    marginTop: 36,
+  },
 }
 
 class VillagerPage extends Component {
@@ -35,21 +45,25 @@ class VillagerPage extends Component {
     return (
       <Fade in={true}>
         <div>
-          <AppBar position="static" color="default">
-            <Toolbar className={classes.toolbar}>
-              <IconButton
-                component={Link}
-                to={`${process.env.REACT_APP_PUBLIC_URL}/villages/${this.props.user.villageId}`}
-                className={classes.icon}
-              >
-                <BackIcon />
-              </IconButton>
-              <Typography variant="subheading">
-                村人一覧
-              </Typography>
-            </Toolbar>
-          </AppBar>
-          <List>
+          <div className={classes.root}>
+            <AppBar position="static" color="default">
+              <Toolbar className={classes.toolbar}>
+                <IconButton
+                  component={Link}
+                  to={`${process.env.REACT_APP_PUBLIC_URL}/villages/${this.props.user.villageId}`}
+                  className={classes.icon}
+                >
+                  <BackIcon />
+                </IconButton>
+                <Typography variant="subheading">
+                  村人一覧
+                </Typography>
+                <IconButton className={classes.icon}>
+                </IconButton>
+              </Toolbar>
+            </AppBar>
+          </div>
+          <List className={classes.list}>
             {this.props.villagers.map((villager) =>
               <Fragment key={villager.id}>
                 <ListItem>

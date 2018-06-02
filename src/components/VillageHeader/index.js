@@ -17,18 +17,15 @@ const styles = {
     top: 0,
     position: 'fixed',
     width: '100%',
-    flexGrow: 1,
-    zIndex: 999
-  },
-  flex: {
-    flex: 1
+    zIndex: 999,
   },
   toolbar: {
-    minHeight: 36
+    minHeight: 36,
+    justifyContent: 'space-between',
   },
   icon: {
     width: 36,
-    height: 36
+    height: 36,
   }
 }
 
@@ -56,7 +53,7 @@ class VillageHeader extends Component {
             <IconButton component={Link} to={`${process.env.REACT_APP_PUBLIC_URL}/`} className={classes.icon}>
               <BackIcon />
             </IconButton>
-            <Typography variant="subheading" color="inherit" className={classes.flex}>
+            <Typography variant="subheading" color="inherit">
               {this.props.village.name}
             </Typography>
             <IconButton onClick={ () => this.toggleMenu() } className={classes.icon}>

@@ -61,7 +61,6 @@ function Talk(props) {
       className={classes.avatar}
     />
   )
-console.log(classes)
   return (
     <div className={classes.root}>
       {isYou ? (

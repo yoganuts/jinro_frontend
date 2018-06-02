@@ -13,7 +13,7 @@ const styles = {
   logo: {
     width: 24,
     height: 24,
-    marginRight: 16
+    marginRight: 8
   }
 }
 

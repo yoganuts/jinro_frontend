@@ -6,10 +6,16 @@ import Radio from '@material-ui/core/Radio'
 import { withStyles } from '@material-ui/core/styles'
 
 const styles = {
+  grid: {
+    textAlign: 'center'
+  },
   icon: {
     width: 48,
-    height: 48
-  }
+    height: 48,
+  },
+  radio: {
+    height: 0,
+  },
 }
 
 class VillagerForm extends Component {
@@ -26,11 +32,12 @@ class VillagerForm extends Component {
     let avatars = []
     for (let i=0; i<12; i++) {
       avatars.push(
-        <Grid item xs={4} sm={4} key={i}>
+        <Grid item xs={4} sm={4} key={i} className={classes.grid}>
           <label>
             <Radio
               name="villager-image-no"
               value={String(i)}
+              className={classes.radio}
               checked={this.props.user.villagerImageNo === String(i)}
               onChange={ (e) => this.updateVillagerImageNo(e) }
             />
