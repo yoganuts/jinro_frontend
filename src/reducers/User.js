@@ -1,6 +1,7 @@
 import { handleActions } from 'redux-actions'
 
 const initialState = {
+  initialized: false,
   villageId: null,
   villagerCode: null,
   villageName: null,
@@ -21,6 +22,9 @@ const retrieveCode = (villageId) => {
 }
 
 export default handleActions({
+  INITIALIZED: (state, action) => Object.assign({}, state, {
+    initialized: true
+  }),
   SELECT_VILLAGE: (state, action) => Object.assign({}, state, {
     villageId: action.payload,
     villagerCode: retrieveCode(action.payload),

@@ -1,5 +1,6 @@
 import { createAction } from 'redux-actions'
 
+export const initialized = createAction('INITIALIZED')
 export const changeVillageName = createAction('CHANGE_VILLAGE_NAME')
 export const changeVillagerName = createAction('CHANGE_VILLAGER_NAME')
 export const changeVillageImage = createAction('CHANGE_VILLAGE_IMAGE')

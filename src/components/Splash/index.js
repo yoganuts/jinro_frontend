@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
 import Typography from '@material-ui/core/Typography'
 import Fade from '@material-ui/core/Fade'
 import { withStyles } from '@material-ui/core/styles'
@@ -26,15 +27,26 @@ const styles = {
 function Splash(props) {
   const { classes } = props
   return (
-    <Fade in={true} timeout={1000}>
-      <div className={classes.root}>
-        <div className={classes.box}>
-          <img src={logo} alt="jinro line" className={classes.logo} />
-          <Typography variant="display1">Jinro Line</Typography>
-        </div>
-      </div>
-    </Fade>
+    <Fragment>
+      {!props.user.initialized &&
+        <Fade in={true} timeout={1000}>
+          <div className={classes.root} onClick={props.onClick}>
+            <div className={classes.box}>
+              <img src={logo} alt="jinro line" className={classes.logo} />
+              <Typography variant="display1">Jinro Line</Typography>
+            </div>
+          </div>
+        </Fade>
+      }
+    </Fragment>
   )
+}
+
+Splash.propTypes = {
+  user: PropTypes.shape({
+    initialized: PropTypes.bool
+  }),
+  onClick: PropTypes.func
 }
 
 export default withStyles(styles)(Splash)
