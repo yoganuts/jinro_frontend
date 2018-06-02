@@ -6,8 +6,9 @@ import * as userActions from './User'
 
 const startFetchVillages = createAction('START_FETCH_VILLAGES')
 const receiveVillages = createAction('RECEIVE_VILLAGES')
-const startFetchVillage = createAction('START_FETCH_VILLAGE')
 const receiveVillage = createAction('RECEIVE_VILLAGE')
+const startSelectVillage = createAction('START_SELECT_VILLAGE')
+const setVillage = createAction('SET_VILLAGE')
 
 export const fetchVillages = () => {
   return async (dispatch, getState) => {
@@ -20,11 +21,11 @@ export const fetchVillages = () => {
   }
 }
 
-export const fetchVillage = (villageId) => {
+export const selectVillage = (villageId) => {
   return async (dispatch, getState) => {
-    dispatch(startFetchVillage())
+    dispatch(startSelectVillage())
     axios.get(process.env.REACT_APP_API_HOST + `/villages/${villageId}`).then((response) => {
-      dispatch(receiveVillage(response.data))
+      dispatch(setVillage(response.data))
     }).catch((response) => {
       console.log(response)
     })

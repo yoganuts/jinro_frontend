@@ -13,7 +13,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   onMount() {
     const villageId = parseInt(ownProps.match.params.villageId, 10)
     dispatch(userActions.selectVillage(villageId))
-    dispatch(villageActions.fetchVillage(villageId))
+    dispatch(villageActions.selectVillage(villageId))
   }
 })
 
