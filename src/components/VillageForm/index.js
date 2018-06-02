@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card'
+import CardHeader from '@material-ui/core/CardHeader'
 import CardContent from '@material-ui/core/CardContent'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
@@ -12,15 +13,17 @@ import Slide from '@material-ui/core/Slide'
 import { withStyles } from '@material-ui/core/styles'
 
 const styles = {
+  root: {
+    position: 'fixed',
+    height: '100vh',
+    bottom: 0,
+    zIndex: 999,
+    backgroundColor: 'white'
+  },
   add: {
     position: 'fixed',
     bottom: 25,
     right: 25,
-    zIndex: 999
-  },
-  form: {
-    position: 'fixed',
-    bottom: 0,
     zIndex: 999
   },
   imageVillage: {
@@ -82,9 +85,10 @@ class VillageForm extends Component {
       return <Button variant="fab" color="primary" className={classes.add} onClick={ (e) => this.clickAdd() }><AddIcon /></Button>
     }
     return (
-      <div className={classes.form}>
+      <div className={classes.root}>
         <Slide in={this.state.addForm} direction="up">
           <Card>
+            <CardHeader title="村追加" />
             <CardContent>
               <form onSubmit={ (e) => this.createVillage(e) }>
                 <Grid container spacing={16}>
@@ -232,7 +236,9 @@ class VillageForm extends Component {
 VillageForm.propTypes = {
   user: PropTypes.shape({
     villageName: PropTypes.string,
-    villagerName: PropTypes.string
+    villagerName: PropTypes.string,
+    villageImageNo: PropTypes.string,
+    villagerImageNo: PropTypes.string
   }),
   onMount: PropTypes.func.isRequired,
   onVillageChange: PropTypes.func.isRequired,

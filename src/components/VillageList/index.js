@@ -4,6 +4,7 @@ import GridList from '@material-ui/core/GridList'
 import GridListTile from '@material-ui/core/GridListTile'
 import GridListTileBar from '@material-ui/core/GridListTileBar'
 import Button from '@material-ui/core/Button'
+import Fade from '@material-ui/core/Fade'
 import EnterIcon from '@material-ui/icons/DirectionsWalk'
 import { Link } from 'react-router-dom'
 import { withStyles } from '@material-ui/core/styles'
@@ -35,26 +36,28 @@ class VillageList extends Component {
       <div className={classes.root}>
         <GridList cellHeight={120} cols={1}>
           {this.props.villages.map(village =>
-            <GridListTile key={village.id}>
-              <img
-                src={require(`../../images/village/${String(village.image_no).padStart(2, "0")}.jpeg`)}
-                alt={village.name}
-              />
-              <GridListTileBar
-                title={village.name}
-                subtitle={`村民：${village.villagers.length}名`}
-                className={classes.titleBar}
-                actionIcon= {
-                  <Button
-                    component={Link}
-                    to={`${process.env.REACT_APP_PUBLIC_URL}/villages/${village.id}`}
-                    className={classes.button}
-                  >
-                    <EnterIcon />入る
-                  </Button>
-                }
-              />
-            </GridListTile>
+            <Fade in={true} timeout={1000} key={village.id}>
+              <GridListTile>
+                <img
+                  src={require(`../../images/village/${String(village.image_no).padStart(2, "0")}.jpeg`)}
+                  alt={village.name}
+                />
+                <GridListTileBar
+                  title={village.name}
+                  subtitle={`村民：${village.villagers.length}名`}
+                  className={classes.titleBar}
+                  actionIcon= {
+                    <Button
+                      component={Link}
+                      to={`${process.env.REACT_APP_PUBLIC_URL}/villages/${village.id}`}
+                      className={classes.button}
+                    >
+                      <EnterIcon />入る
+                    </Button>
+                  }
+                />
+              </GridListTile>
+            </Fade>
           )}
         </GridList>
       </div>
