@@ -1,58 +1,99 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Card from '@material-ui/core/Card'
-import CardContent from '@material-ui/core/CardContent'
-import CardActions from '@material-ui/core/CardActions'
+import Grid from '@material-ui/core/Grid'
 import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
+import Radio from '@material-ui/core/Radio'
 
-export default class VillagerForm extends Component {
-  componentWillMount() {
-    this.props.onMount(this.props.user.villageId)
-  }
-
+class VillagerForm extends Component {
   updateVillagerName(event) {
-    this.props.onChange(event.target.value)
+    this.props.onVillagerChange(event.target.value)
   }
 
-  createVillager(event) {
-    event.preventDefault()
-    this.props.onSubmit(this.props.user.villageId, this.props.user.villagerName)
+  updateVillagerImageNo(event) {
+    this.props.onVillagerImageChange(event.target.value)
   }
 
   render() {
     return (
-      <form onSubmit={ (e) => this.createVillager(e) }>
-        <Card>
-          <CardContent>
-            <TextField
-              fullWidth
-              placeholder="name"
-              onChange={ (e) => this.updateVillagerName(e) }
-            />
-          </CardContent>
-          <CardActions>
-            <Button
-              type="submit"
-              color="primary"
-              variant="raised"
-              size="small"
-            >
-              Join
-            </Button>
-          </CardActions>
-        </Card>
-      </form>
+      <Grid container spacing={16}>
+        <Grid item xs={12} sm={3}>
+          <TextField
+            label="Your Name"
+            required
+            onChange={ (e) => this.updateVillagerName(e) }
+          />
+        </Grid>
+
+        <Grid item xs={12} sm={9} container>
+          <Grid item xs={12} sm={6}>
+            <label>
+              <Radio
+                name="villager-image-no"
+                value="0"
+                checked={this.props.user.villagerImageNo === "0"}
+                onChange={ (e) => this.updateVillagerImageNo(e) }
+              />
+              <img src={require('../../images/villager/00.png')} alt="" />
+            </label>
+            <label>
+              <Radio
+                name="villager-image-no"
+                value="1"
+                checked={this.props.user.villagerImageNo === "1"}
+                onChange={ (e) => this.updateVillagerImageNo(e) }
+              />
+              <img src={require('../../images/villager/01.png')} alt="" />
+            </label>
+            <label>
+              <Radio
+                name="villager-image-no"
+                value="2"
+                checked={this.props.user.villagerImageNo === "2"}
+                onChange={ (e) => this.updateVillagerImageNo(e) }
+              />
+              <img src={require('../../images/villager/02.png')} alt="" />
+            </label>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <label>
+              <Radio
+                name="villager-image-no"
+                value="3"
+                checked={this.props.user.villagerImageNo === "3"}
+                onChange={ (e) => this.updateVillagerImageNo(e) }
+              />
+              <img src={require('../../images/villager/03.png')} alt="" />
+            </label>
+            <label>
+              <Radio
+                name="villager-image-no"
+                value="4"
+                checked={this.props.user.villagerImageNo === "4"}
+                onChange={ (e) => this.updateVillagerImageNo(e) }
+              />
+              <img src={require('../../images/villager/04.png')} alt="" />
+            </label>
+            <label>
+              <Radio
+                name="villager-image-no"
+                value="5"
+                checked={this.props.user.villagerImageNo === "5"}
+                onChange={ (e) => this.updateVillagerImageNo(e) }
+              />
+              <img src={require('../../images/villager/05.png')} alt="" />
+            </label>
+          </Grid>
+        </Grid>
+      </Grid>
     )
   }
 }
 
 VillagerForm.propTypes = {
   user: PropTypes.shape({
-    villageId: PropTypes.number,
-    villagerName: PropTypes.string
+    villagerImageNo: PropTypes.string
   }),
-  onMount: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired
+  onVillagerChange: PropTypes.func.isRequired,
+  onVillagerImageChange: PropTypes.func.isRequired
 }
+export default VillagerForm

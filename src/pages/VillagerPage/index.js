@@ -12,7 +12,7 @@ import BackIcon from '@material-ui/icons/KeyboardArrowLeft'
 import Typography from '@material-ui/core/Typography'
 import { Link } from 'react-router-dom'
 
-import VillagerForm from '../../containers/VillagerForm'
+import VillagerNew from '../../containers/VillagerNew'
 
 class VillagerPage extends Component {
   componentWillMount() {
@@ -50,7 +50,7 @@ class VillagerPage extends Component {
             )}
           </List>
           {!this.props.user.villagerCode &&
-            <VillagerForm />
+            <VillagerNew />
           }
         </div>
       </Fade>
