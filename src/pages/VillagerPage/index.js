@@ -10,9 +10,20 @@ import Toolbar from '@material-ui/core/Toolbar'
 import IconButton from '@material-ui/core/IconButton'
 import BackIcon from '@material-ui/icons/KeyboardArrowLeft'
 import Typography from '@material-ui/core/Typography'
+import { withStyles } from '@material-ui/core/styles'
 import { Link } from 'react-router-dom'
 
 import VillagerNew from '../../containers/VillagerNew'
+
+const styles = {
+  toolbar: {
+    minHeight: 36
+  },
+  icon: {
+    width: 36,
+    height: 36
+  }
+}
 
 class VillagerPage extends Component {
   componentWillMount() {
@@ -20,15 +31,20 @@ class VillagerPage extends Component {
   }
 
   render() {
+    const { classes } = this.props
     return (
       <Fade in={true}>
         <div>
           <AppBar position="static" color="default">
-            <Toolbar>
-              <IconButton component={Link} to={`${process.env.REACT_APP_PUBLIC_URL}/villages/${this.props.user.villageId}`}>
+            <Toolbar className={classes.toolbar}>
+              <IconButton
+                component={Link}
+                to={`${process.env.REACT_APP_PUBLIC_URL}/villages/${this.props.user.villageId}`}
+                className={classes.icon}
+              >
                 <BackIcon />
               </IconButton>
-              <Typography variant="title">
+              <Typography variant="subheading">
                 村人一覧
               </Typography>
             </Toolbar>
@@ -58,4 +74,4 @@ class VillagerPage extends Component {
   }
 }
 
-export default VillagerPage
+export default withStyles(styles)(VillagerPage)

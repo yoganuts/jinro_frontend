@@ -7,9 +7,12 @@ import { withStyles } from '@material-ui/core/styles'
 import logo from '../../images/jinro.svg'
 
 const styles = {
+  toolbar: {
+    minHeight: 36
+  },
   logo: {
-    width: 32,
-    height: 32,
+    width: 24,
+    height: 24,
     marginRight: 16
   }
 }
@@ -18,9 +21,9 @@ function Header(props) {
   const { classes } = props
   return (
     <AppBar position="static" color="default">
-      <Toolbar>
+      <Toolbar className={classes.toolbar}>
         <img src={logo} alt="jinro line" className={classes.logo} />
-        <Typography variant="title" color="inherit">
+        <Typography variant="subheading" color="inherit">
           Jinro Line
         </Typography>
       </Toolbar>

@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
 import { withStyles } from '@material-ui/core/styles'
 import BackIcon from '@material-ui/icons/KeyboardArrowLeft'
+import MenuUpIcon from '@material-ui/icons/KeyboardArrowUp'
 import MenuDownIcon from '@material-ui/icons/KeyboardArrowDown'
 import { Link } from 'react-router-dom'
 
@@ -20,6 +21,13 @@ const styles = {
   },
   flex: {
     flex: 1
+  },
+  toolbar: {
+    minHeight: 36
+  },
+  icon: {
+    width: 36,
+    height: 36
   }
 }
 
@@ -39,18 +47,19 @@ class VillageHeader extends Component {
 
   render() {
     const { classes } = this.props
+    const menuIcon = this.state.showMenu ? <MenuUpIcon /> : <MenuDownIcon />
     return (
       <div className={classes.root}>
         <AppBar position="static" color="default">
-          <Toolbar>
-            <IconButton component={Link} to={`${process.env.REACT_APP_PUBLIC_URL}/`}>
+          <Toolbar className={classes.toolbar}>
+            <IconButton component={Link} to={`${process.env.REACT_APP_PUBLIC_URL}/`} className={classes.icon}>
               <BackIcon />
             </IconButton>
-            <Typography variant="title" color="inherit" className={classes.flex}>
+            <Typography variant="subheading" color="inherit" className={classes.flex}>
               {this.props.village.name}
             </Typography>
-            <IconButton onClick={ () => this.toggleMenu() }>
-              <MenuDownIcon />
+            <IconButton onClick={ () => this.toggleMenu() } className={classes.icon}>
+              {menuIcon}
             </IconButton>
           </Toolbar>
         </AppBar>
