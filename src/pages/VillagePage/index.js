@@ -11,9 +11,11 @@ const styles = {
   square: {
     height: '100vh',
     overflow: 'auto',
-    paddingTop: 50,
+    marginTop: 36,
+    marginBottom: 42,
+    paddingTop: 20,
     backgroundSize: 'auto 100%',
-    backgroundPosition: 'bottom'
+    backgroundPosition: 'bottom',
   }
 }
 

@@ -14,6 +14,7 @@ import VillageMenu from '../../containers/VillageMenu'
 
 const styles = {
   root: {
+    top: 0,
     position: 'fixed',
     width: '100%',
     flexGrow: 1,

@@ -1,28 +1,59 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Avatar from '@material-ui/core/Avatar'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemText from '@material-ui/core/ListItemText'
+import Typography from '@material-ui/core/Typography'
 import moment from 'moment'
 import { withStyles } from '@material-ui/core/styles'
-import classNames from 'classnames'
-
-import './index.css'
 
 const styles = {
+  root: {
+    display: 'flex',
+    marginLeft: 5,
+    marginRight: 5,
+    marginBottom: 12,
+  },
   avatar: {
     height: 36,
     width: 36,
-    backgroundColor: 'white'
   },
-  align: {
-    textAlign: 'right'
-  }
+  detail: {
+    display: 'flex',
+    flexDirection: 'column',
+    marginLeft: 10,
+    marginRight: 10,
+    width: '100%',
+  },
+  detail2: {
+    display: 'flex',
+    alignItems: 'flex-end',
+    maxWidth: '90%',
+  },
+  name: {
+    fontSize: 9,
+    marginBottom: 4,
+  },
+  content: {
+    backgroundColor: 'white',
+    padding: 10,
+    borderRadius: 16,
+  },
+  date: {
+    fontSize: 9,
+    marginLeft: 5,
+    marginRight: 5,
+    paddingBottom: 5,
+  },
+  youDetail: {
+    alignItems: 'flex-end'
+  },
+  youContent: {
+    backgroundColor: '#70ff70'
+  },
 }
 
 function Talk(props) {
   const { classes } = props
-  const you = props.user.villagerCode === props.talk.villager.code
+  const isYou = props.user.villagerCode === props.talk.villager.code
   const villagerAvatar = (
     <Avatar
       src={require(`../../images/villager/${String(props.talk.villager.image_no).padStart(2, "0")}.jpg`)}
@@ -30,16 +61,39 @@ function Talk(props) {
       className={classes.avatar}
     />
   )
-  const talkClasses = classNames('talk', { 'talk-you': you })
+console.log(classes)
   return (
-    <ListItem className={talkClasses}>
-      {!you && villagerAvatar}
-      <ListItemText
-        primary={props.talk.content}
-        secondary={`${props.talk.villager.name}: ${moment(props.talk.created_at).format("MM/DD h:mm")}`}
-        className={you ? classes.align : null}
-      />
-    </ListItem>
+    <div className={classes.root}>
+      {isYou ? (
+        <div className={`${classes.youDetail} ${classes.detail}`}>
+          <div className={classes.detail2}>
+            <Typography className={classes.date}>
+              {moment(props.talk.created_at).format("H:mm")}
+            </Typography>
+            <Typography className={`${classes.content} ${classes.youContent}`}>
+              {props.talk.content}
+            </Typography>
+          </div>
+        </div>
+      ) : (
+        <Fragment>
+          {villagerAvatar}
+          <div className={classes.detail}>
+            <Typography className={classes.name}>
+              {props.talk.villager.name}
+            </Typography>
+            <div className={classes.detail2}>
+              <Typography className={classes.content}>
+                {props.talk.content}
+              </Typography>
+              <Typography className={classes.date}>
+                {moment(props.talk.created_at).format("H:mm")}
+              </Typography>
+            </div>
+          </div>
+        </Fragment>
+      )}
+    </div>
   )
 }
 
@@ -48,8 +102,9 @@ Talk.propTypes = {
     content: PropTypes.string.isRequired,
     created_at: PropTypes.string.isRequired,
     villager: PropTypes.shape({
+      name: PropTypes.string.isRequired,
       code: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired
+      image_no: PropTypes.number.isRequired
     })
   }),
   user: PropTypes.shape({

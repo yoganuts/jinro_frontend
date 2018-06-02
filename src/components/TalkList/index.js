@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 
 import Talk from '../../containers/Talk'
@@ -10,11 +10,11 @@ export default class TalkList extends Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         {this.props.talks.slice().reverse().map(talk =>
           <Talk key={talk.id} talk={talk} />
         )}
-      </div>
+      </Fragment>
     )
   }
 }
