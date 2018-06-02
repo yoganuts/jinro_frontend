@@ -3,6 +3,14 @@ import PropTypes from 'prop-types'
 import Grid from '@material-ui/core/Grid'
 import TextField from '@material-ui/core/TextField'
 import Radio from '@material-ui/core/Radio'
+import { withStyles } from '@material-ui/core/styles'
+
+const styles = {
+  icon: {
+    width: 48,
+    height: 48
+  }
+}
 
 class VillagerForm extends Component {
   updateVillagerName(event) {
@@ -14,6 +22,7 @@ class VillagerForm extends Component {
   }
 
   render() {
+    const { classes } = this.props
     return (
       <Grid container spacing={16}>
         <Grid item xs={12} sm={3}>
@@ -33,7 +42,7 @@ class VillagerForm extends Component {
                 checked={this.props.user.villagerImageNo === "0"}
                 onChange={ (e) => this.updateVillagerImageNo(e) }
               />
-              <img src={require('../../images/villager/00.png')} alt="" />
+              <img className={classes.icon} src={require('../../images/villager/00.png')} alt="" />
             </label>
             <label>
               <Radio
@@ -42,7 +51,7 @@ class VillagerForm extends Component {
                 checked={this.props.user.villagerImageNo === "1"}
                 onChange={ (e) => this.updateVillagerImageNo(e) }
               />
-              <img src={require('../../images/villager/01.png')} alt="" />
+              <img className={classes.icon} src={require('../../images/villager/01.png')} alt="" />
             </label>
             <label>
               <Radio
@@ -51,7 +60,7 @@ class VillagerForm extends Component {
                 checked={this.props.user.villagerImageNo === "2"}
                 onChange={ (e) => this.updateVillagerImageNo(e) }
               />
-              <img src={require('../../images/villager/02.png')} alt="" />
+              <img className={classes.icon} src={require('../../images/villager/02.png')} alt="" />
             </label>
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -62,7 +71,7 @@ class VillagerForm extends Component {
                 checked={this.props.user.villagerImageNo === "3"}
                 onChange={ (e) => this.updateVillagerImageNo(e) }
               />
-              <img src={require('../../images/villager/03.png')} alt="" />
+              <img className={classes.icon} src={require('../../images/villager/03.png')} alt="" />
             </label>
             <label>
               <Radio
@@ -71,7 +80,7 @@ class VillagerForm extends Component {
                 checked={this.props.user.villagerImageNo === "4"}
                 onChange={ (e) => this.updateVillagerImageNo(e) }
               />
-              <img src={require('../../images/villager/04.png')} alt="" />
+              <img className={classes.icon} src={require('../../images/villager/04.png')} alt="" />
             </label>
             <label>
               <Radio
@@ -80,7 +89,7 @@ class VillagerForm extends Component {
                 checked={this.props.user.villagerImageNo === "5"}
                 onChange={ (e) => this.updateVillagerImageNo(e) }
               />
-              <img src={require('../../images/villager/05.png')} alt="" />
+              <img className={classes.icon} src={require('../../images/villager/05.png')} alt="" />
             </label>
           </Grid>
         </Grid>
@@ -96,4 +105,4 @@ VillagerForm.propTypes = {
   onVillagerChange: PropTypes.func.isRequired,
   onVillagerImageChange: PropTypes.func.isRequired
 }
-export default VillagerForm
+export default withStyles(styles)(VillagerForm)
