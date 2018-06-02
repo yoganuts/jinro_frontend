@@ -25,10 +25,6 @@ const styles = {
 }
 
 class VillageNew extends Component {
-  componentWillMount() {
-    this.props.onMount()
-  }
-
   updateVillageName(event) {
     this.props.onVillageChange(event.target.value)
   }
@@ -120,7 +116,6 @@ VillageNew.propTypes = {
     villagerImageNo: PropTypes.string
   }),
   closeForm: PropTypes.func.isRequired,
-  onMount: PropTypes.func.isRequired,
   onVillageChange: PropTypes.func.isRequired,
   onVillageImageChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired

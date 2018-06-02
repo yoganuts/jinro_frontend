@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import PropTypes from 'prop-types'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
@@ -38,6 +39,10 @@ const styles = {
 class VillagerPage extends Component {
   componentWillMount() {
     this.props.onMount()
+  }
+
+  componentWillUnmount() {
+    this.props.onUnmount(this.props.user.villageId)
   }
 
   render() {
@@ -86,6 +91,16 @@ class VillagerPage extends Component {
       </Fade>
     )
   }
+}
+
+VillagerPage.propTypes = {
+  user: PropTypes.shape({
+    villageId: PropTypes.number,
+    villageCode: PropTypes.string,
+  }),
+  villagers: PropTypes.array,
+  onMount: PropTypes.func.isRequired,
+  onUnmount: PropTypes.func.isRequired,
 }
 
 export default withStyles(styles)(VillagerPage)

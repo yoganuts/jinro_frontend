@@ -21,6 +21,14 @@ class HomePage extends Component {
     }
   }
 
+  componentWillMount() {
+    this.props.onMount()
+  }
+
+  componentWillUnmount() {
+    this.props.onUnmount()
+  }
+
   toggleForm() {
     this.setState({
       showForm: !this.state.showForm,
@@ -58,7 +66,9 @@ class HomePage extends Component {
 HomePage.propTypes = {
   user: PropTypes.shape({
     initialized: PropTypes.bool
-  })
+  }),
+  onMount: PropTypes.func.isRequired,
+  onUnmount: PropTypes.func.isRequired,
 }
 
 export default withStyles(styles)(HomePage)

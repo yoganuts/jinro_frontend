@@ -8,10 +8,6 @@ import Button from '@material-ui/core/Button'
 import VillagerForm from '../../containers/VillagerForm'
 
 class VillagerNew extends Component {
-  componentWillMount() {
-    this.props.onMount(this.props.user.villageId)
-  }
-
   createVillager(event) {
     event.preventDefault()
     this.props.onSubmit(
@@ -49,7 +45,6 @@ VillagerNew.propTypes = {
     villageId: PropTypes.number,
     villagerName: PropTypes.string
   }),
-  onMount: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired
 }
 

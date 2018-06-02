@@ -14,7 +14,11 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     const villageId = parseInt(ownProps.match.params.villageId, 10)
     dispatch(userActions.selectVillage(villageId))
     dispatch(villagerActions.fetchVillagers(villageId))
-  }
+    dispatch(villagerActions.createSocket(villageId))
+  },
+  onUnmount(villageId) {
+    dispatch(villagerActions.removeSocket(villageId))
+  },
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(VillagerPage)

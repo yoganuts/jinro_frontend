@@ -35,7 +35,7 @@ export const selectVillage = (villageId) => {
 export const createSocket = () => {
   return (dispatch, getState) => {
     let cable = Cable.createConsumer(process.env.REACT_APP_SOCKET_PATH)
-    this.villager = cable.subscriptions.create({
+    this.villages = cable.subscriptions.create({
       channel: 'VillageChannel'
     }, {
       connected: () => {},
@@ -44,6 +44,10 @@ export const createSocket = () => {
       }
     })
   }
+}
+
+export const removeSocket = () => {
+  return () => this.villages.unsubscribe()
 }
 
 export const createVillage = (villageName, villagerName, villageImageNo, villagerImageNo) => {

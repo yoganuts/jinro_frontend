@@ -55,7 +55,7 @@ VillagePage.propTypes = {
   village: PropTypes.shape({
     image_no: PropTypes.number
   }),
-  onMount: PropTypes.func.isRequired
+  onMount: PropTypes.func.isRequired,
 }
 
 export default withStyles(styles)(VillagePage)

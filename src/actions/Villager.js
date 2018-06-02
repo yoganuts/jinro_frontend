@@ -34,6 +34,10 @@ export const createSocket = (villageId) => {
   }
 }
 
+export const removeSocket = (villageId) => {
+  return () => this.villagers.unsubscribe()
+}
+
 export const createVillager = (villageId, villagerName, villagerImageNo) => {
   return async (dispatch, getState) => {
     const params = {
