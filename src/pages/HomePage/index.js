@@ -10,7 +10,7 @@ export default function HomePage(props) {
   return (
     <Fragment>
       {props.user.initialized &&
-        <Fade in={true} timeout={500}>
+        <Fade in={true}>
           <div>
             <HomeHeader />
             <VillageForm />

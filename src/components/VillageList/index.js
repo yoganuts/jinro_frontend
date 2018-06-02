@@ -36,7 +36,7 @@ class VillageList extends Component {
       <div className={classes.root}>
         <GridList cellHeight={120} cols={1}>
           {this.props.villages.map(village =>
-            <Fade in={true} timeout={1000} key={village.id}>
+            <Fade in={true} key={village.id}>
               <GridListTile>
                 <img
                   src={require(`../../images/village/${String(village.image_no).padStart(2, "0")}.jpeg`)}
