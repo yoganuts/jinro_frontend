@@ -5,8 +5,17 @@ import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
+import { withStyles } from '@material-ui/core/styles'
 
-export default class TalkForm extends Component {
+const styles = {
+  root: {
+    bottom: 0,
+    position: 'fixed',
+    width: '100%'
+  }
+}
+
+class TalkForm extends Component {
   componentWillMount() {
     this.props.onMount(this.props.user.villageId)
   }
@@ -21,8 +30,9 @@ export default class TalkForm extends Component {
   }
 
   render() {
+    const { classes } = this.props
     return (
-      <Card>
+      <Card className={classes.root}>
         <CardContent>
             <form onSubmit={ (e) => this.createTalk(e) }>
               <Grid container>
@@ -60,3 +70,5 @@ TalkForm.propTypes = {
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired
 }
+
+export default withStyles(styles)(TalkForm)

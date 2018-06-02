@@ -4,7 +4,8 @@ import VillagePage from '../../pages/VillagePage'
 import * as userActions from '../../actions/User'
 import * as villageActions from '../../actions/Village'
 
-const mapStateToProps = ({ Village }) => ({
+const mapStateToProps = ({ User, Village }) => ({
+  user: User,
   village: Village.village
 })
 
