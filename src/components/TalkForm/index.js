@@ -4,14 +4,24 @@ import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
+import IconButton from '@material-ui/core/IconButton'
+import SendIcon from '@material-ui/icons/Send'
 import { withStyles } from '@material-ui/core/styles'
 
 const styles = {
   root: {
     bottom: 0,
     position: 'fixed',
-    width: '100%'
+    width: '100%',
+    padding: 4,
+    backgroundColor: 'white'
+  },
+  text: {
+    width: '75%'
+  },
+  icon: {
+    width: 32,
+    height: 32
   }
 }
 
@@ -32,30 +42,18 @@ class TalkForm extends Component {
   render() {
     const { classes } = this.props
     return (
-      <Card className={classes.root}>
-        <CardContent>
-            <form onSubmit={ (e) => this.createTalk(e) }>
-              <Grid container>
-                <Grid item xs={9} sm={9}>
-                  <TextField
-                    fullWidth
-                    placeholder="証言を入力(Let's talk!)"
-                    onChange={ (e) => this.updateTalkContent(e) }
-                  />
-                </Grid>
-                <Grid item xs={3} sm={3}>
-                  <Button
-                    type="submit"
-                    color="primary"
-                    variant="raised"
-                  >
-                    話す
-                  </Button>
-                </Grid>
-              </Grid>
-            </form>
-        </CardContent>
-      </Card>
+      <div className={classes.root}>
+          <form onSubmit={ (e) => this.createTalk(e) }>
+            <TextField
+              placeholder="証言を入力(Let's talk!)"
+              onChange={ (e) => this.updateTalkContent(e) }
+              className={classes.text}
+            />
+            <IconButton type="submit" className={classes.icon}>
+              <SendIcon />
+            </IconButton>
+          </form>
+      </div>
     )
   }
 }
