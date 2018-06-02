@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Fade from '@material-ui/core/Fade'
 
-import Header from '../../components/Header'
+import HomeHeader from '../../components/HomeHeader'
 import VillageList from '../../containers/VillageList'
 import VillageForm from '../../containers/VillageForm'
 
@@ -12,7 +12,7 @@ export default function HomePage(props) {
       {props.user.initialized &&
         <Fade in={true} timeout={500}>
           <div>
-            <Header />
+            <HomeHeader />
             <VillageForm />
             <VillageList />
           </div>
