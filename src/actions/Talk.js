@@ -42,6 +42,10 @@ export const createSocket = (villageId) => {
   }
 }
 
+export const removeSocket = (villageId) => {
+  return () => this.talks.unsubscribe()
+}
+
 export const createTalk = (villagerCode, talkContent) => {
   return () => {
     this.talks.create(villagerCode, talkContent)

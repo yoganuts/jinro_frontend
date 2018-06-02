@@ -12,6 +12,9 @@ const mapDispatchToProps = (dispatch) => ({
   onMount(villageId) {
     dispatch(talkActions.createSocket(villageId))
   },
+  onUnmount(villageId) {
+    dispatch(talkActions.removeSocket(villageId))
+  },
   onChange(talkContent) {
     dispatch(userActions.changeTalkContent(talkContent))
   },

@@ -32,6 +32,10 @@ class TalkForm extends Component {
     this.props.onChange(event.target.value)
   }
 
+  componentWillUnmount() {
+    this.props.onUnmount(this.props.user.villageId)
+  }
+
   createTalk(event) {
     event.preventDefault()
     this.props.onSubmit(this.props.user.villagerCode, this.props.user.talkContent)
