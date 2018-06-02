@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
 import AddIcon from '@material-ui/icons/DirectionsWalk'
+import SettingsIcon from '@material-ui/icons/Settings'
 import { withStyles } from '@material-ui/core/styles'
 import { Link } from 'react-router-dom'
 
@@ -35,6 +36,18 @@ function VillageMenu(props) {
             </CardContent>
           </Card>
         </Link>
+      </Grid>
+      <Grid item xs={9} sm={9}>
+          <Card>
+            <CardContent className={classes.card}>
+              <IconButton disabled>
+                <SettingsIcon />
+              </IconButton>
+              <Typography color="textSecondary">
+                設定
+              </Typography>
+            </CardContent>
+          </Card>
       </Grid>
     </Grid>
   )
