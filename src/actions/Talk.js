@@ -2,6 +2,8 @@ import { createAction } from 'redux-actions'
 import axios from 'axios'
 import Cable from 'actioncable'
 
+import * as userActions from './User'
+
 const startFetchTalks = createAction('START_FETCH_TALKS')
 const receiveTalks = createAction('RECEIVE_TALKS')
 const receiveTalk = createAction('RECEIVE_TALK')
@@ -11,6 +13,7 @@ export const fetchTalks = (villageId) => {
     dispatch(startFetchTalks())
     axios.get(process.env.REACT_APP_API_HOST + `/villages/${villageId}/talks?q[s]=created_at+desc`).then((response) => {
       dispatch(receiveTalks(response.data))
+      dispatch(userActions.setScrollBottom())
     }).catch((response) => {
       console.log(response)
     })
@@ -27,6 +30,7 @@ export const createSocket = (villageId) => {
       connected: () => {},
       received: (data) => {
         dispatch(receiveTalk(data))
+        dispatch(userActions.setScrollBottom())
       },
       create: function(villagerCode, talkContent) {
         this.perform('create', {

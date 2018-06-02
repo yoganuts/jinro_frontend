@@ -51,5 +51,9 @@ export default handleActions({
   }),
   CHANGE_TALK_CONTENT: (state, action) => Object.assign({}, state, {
     talkContent: action.payload
-  })
+  }),
+  SET_SCROLL_BOTTOM: (state, action) => {
+    window.scrollTo(0, document.body.scrollHeight)
+    return state
+  },
 }, initialState)

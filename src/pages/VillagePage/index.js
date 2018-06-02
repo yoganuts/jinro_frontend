@@ -9,7 +9,7 @@ import TalkForm from '../../containers/TalkForm'
 
 const styles = {
   square: {
-    height: '100vh',
+    minHeight: '100vh',
     overflow: 'auto',
     marginTop: 36,
     marginBottom: 42,
