@@ -25,7 +25,7 @@ function Talk(props) {
   const you = props.user.villagerCode === props.talk.villager.code
   const villagerAvatar = (
     <Avatar
-      src={require(`../../images/villager/${String(props.talk.villager.image_no).padStart(2, "0")}.png`)}
+      src={require(`../../images/villager/${String(props.talk.villager.image_no).padStart(2, "0")}.jpg`)}
       alt={props.talk.villager.name}
       className={classes.avatar}
     />

@@ -12,12 +12,12 @@ const initialState = {
 }
 
 const saveCode = (villageId, villagerCode) => {
-  let codes = JSON.parse(localStorage.getItem('villager_codes')) || {}
+  let codes = JSON.parse(localStorage.getItem('villagerCodes')) || {}
   codes[villageId] = villagerCode
-  localStorage.setItem('villager_codes', JSON.stringify(codes))
+  localStorage.setItem('villagerCodes', JSON.stringify(codes))
 }
 const retrieveCode = (villageId) => {
-  const codes = JSON.parse(localStorage.getItem('villager_codes')) || {}
+  const codes = JSON.parse(localStorage.getItem('villagerCodes')) || {}
   return codes.hasOwnProperty(villageId) ? codes[villageId] : null
 }
 

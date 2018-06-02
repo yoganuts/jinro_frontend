@@ -54,7 +54,7 @@ class VillagerPage extends Component {
               <Fragment key={villager.id}>
                 <ListItem>
                   <Avatar
-                    src={require(`../../images/villager/${String(villager.image_no).padStart(2, "0")}.png`)}
+                    src={require(`../../images/villager/${String(villager.image_no).padStart(2, "0")}.jpg`)}
                     alt={villager.name}
                   />
                   <ListItemText>
