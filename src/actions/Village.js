@@ -1,6 +1,7 @@
 import { createAction } from 'redux-actions'
 import axios from 'axios'
 import Cable from 'actioncable'
+import qs from 'qs'
 
 import * as userActions from './User'
 
@@ -10,10 +11,11 @@ const receiveVillage = createAction('RECEIVE_VILLAGE')
 const startSelectVillage = createAction('START_SELECT_VILLAGE')
 const setVillage = createAction('SET_VILLAGE')
 
-export const fetchVillages = () => {
+export const fetchVillages = (params) => {
   return async (dispatch, getState) => {
     dispatch(startFetchVillages())
-    axios.get(process.env.REACT_APP_API_HOST + '/villages').then((response) => {
+    const q = qs.stringify({ q: params })
+    axios.get(process.env.REACT_APP_API_HOST + `/villages?${q}`).then((response) => {
       dispatch(receiveVillages(response.data))
     }).catch((response) => {
       console.log(response)

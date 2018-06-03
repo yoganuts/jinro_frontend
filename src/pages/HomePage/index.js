@@ -6,7 +6,6 @@ import { withStyles } from '@material-ui/core/styles'
 import HomeHeader from '../../components/HomeHeader'
 import VillageList from '../../containers/VillageList'
 import VillageNew from '../../containers/VillageNew'
-import SearchBar from '../../components/SearchBar'
 
 const styles = {
   list: {
@@ -54,7 +53,6 @@ class HomePage extends Component {
                 {this.state.showForm &&
                   <VillageNew closeForm={ () => this.closeForm() } />
                 }
-                <SearchBar onChange={ (e) => console.log(e.target.value) } />
                 <VillageList />
               </div>
             </div>

@@ -8,8 +8,8 @@ const mapStateToProps = ({ Village }) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  onMount() {
-    dispatch(villageActions.fetchVillages())
+  onFetch(params) {
+    dispatch(villageActions.fetchVillages(params))
   },
 })
 
