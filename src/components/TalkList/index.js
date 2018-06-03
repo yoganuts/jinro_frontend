@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 
 import Talk from '../../containers/Talk'
+import NotificationTalk from '../NotificationTalk'
 
 export default class TalkList extends Component {
   componentWillMount() {
@@ -12,7 +13,13 @@ export default class TalkList extends Component {
     return (
       <Fragment>
         {this.props.talks.slice().reverse().map(talk =>
-          <Talk key={talk.id} talk={talk} />
+          <Fragment key={talk.id}>
+            {talk.villagerId ? (
+              <Talk talk={talk} />
+            ):(
+              <NotificationTalk talk={talk} />
+            )}
+          </Fragment>
         )}
       </Fragment>
     )
