@@ -41,7 +41,7 @@ class VillagerForm extends Component {
               checked={this.props.user.villagerImageNo === String(i)}
               onChange={ (e) => this.updateVillagerImageNo(e) }
             />
-            <img className={classes.icon} src={require(`../../images/villager/${String(i).padStart(2, "0")}.jpg`)} alt="" />
+            <img className={classes.icon} src={require(`../../images/villager/${String(i).padStart(2, '0')}.jpg`)} alt="" />
           </label>
         </Grid>
       )

@@ -7,10 +7,10 @@ export default function Villager(props) {
   return (
     <Chip
       avatar={<Avatar
-                src={require(`../../images/villager/${String(props.villager.imageNo).padStart(2, "0")}.jpg`)}
-                alt={props.villager.name}
-              />}
-      label={`${props.villager.name}${props.you ? "(you)" : ""}`}
+        src={require(`../../images/villager/${String(props.villager.imageNo).padStart(2, '0')}.jpg`)}
+        alt={props.villager.name}
+      />}
+      label={`${props.villager.name}${props.you ? '(you)' : ''}`}
     />
   )
 }

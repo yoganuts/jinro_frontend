@@ -65,7 +65,7 @@ class VillageNew extends Component {
               checked={this.props.user.villageImageNo === String(i)}
               onChange={ (e) => this.updateVillageImageNo(e) }
             />
-            <img src={require(`../../images/village/${String(i).padStart(2, "0")}.jpeg`)} className={classes.imageVillage} alt="" />
+            <img src={require(`../../images/village/${String(i).padStart(2, '0')}.jpeg`)} className={classes.imageVillage} alt="" />
           </label>
         </Grid>
       )

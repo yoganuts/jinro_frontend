@@ -44,10 +44,10 @@ class Splash extends Component {
   }
 
   render () {
-  const { classes } = this.props
-  return (
-    <Fragment>
-      {!this.props.user.initialized &&
+    const { classes } = this.props
+    return (
+      <Fragment>
+        {!this.props.user.initialized &&
         <Fade in={true} timeout={500}>
           <div className={classes.root} onClick={this.props.onClick}>
             <div className={classes.box}>
@@ -58,9 +58,9 @@ class Splash extends Component {
             </div>
           </div>
         </Fade>
-      }
-    </Fragment>
-  )
+        }
+      </Fragment>
+    )
   }
 }
 

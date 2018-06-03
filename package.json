@@ -33,7 +33,10 @@
     "build": "react-scripts build",
     "test": "jest",
     "eject": "react-scripts eject",
-    "deploy": "yarn build && gh-pages -d build"
+    "deploy": "yarn build && gh-pages -d build",
+    "test": "test:lint test:jest",
+    "test:lint": "eslint src",
+    "test:jest": "jest"
   },
   "devDependencies": {
     "enzyme": "^3.3.0",

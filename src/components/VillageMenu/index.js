@@ -38,16 +38,16 @@ function VillageMenu(props) {
         </Link>
       </Grid>
       <Grid item xs={9} sm={9}>
-          <Card>
-            <CardContent className={classes.card}>
-              <IconButton disabled>
-                <SettingsIcon />
-              </IconButton>
-              <Typography color="textSecondary">
+        <Card>
+          <CardContent className={classes.card}>
+            <IconButton disabled>
+              <SettingsIcon />
+            </IconButton>
+            <Typography color="textSecondary">
                 設定
-              </Typography>
-            </CardContent>
-          </Card>
+            </Typography>
+          </CardContent>
+        </Card>
       </Grid>
     </Grid>
   )

@@ -27,7 +27,7 @@ function NotificationTalk(props) {
     <div className={classes.root}>
       <div className={classes.chip}>
         <Typography className={classes.text}>
-          {moment(props.talk.createdAt).format("H:mm")}
+          {moment(props.talk.createdAt).format('H:mm')}
         </Typography>
         <Typography className={classes.text}>
           {props.talk.content}

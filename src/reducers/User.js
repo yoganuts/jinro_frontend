@@ -5,9 +5,9 @@ const initialState = {
   villageId: null,
   villagerCode: null,
   villageName: null,
-  villageImageNo: "0",
+  villageImageNo: '0',
   villagerName: null,
-  villagerImageNo: "0",
+  villagerImageNo: '0',
   talkContent: null,
 }
 

@@ -60,7 +60,7 @@ function Talk(props) {
   const sanitizeAllowed = { allowedTags: ['a'] }
   const villagerAvatar = (
     <Avatar
-      src={require(`../../images/villager/${String(props.talk.villager.imageNo).padStart(2, "0")}.jpg`)}
+      src={require(`../../images/villager/${String(props.talk.villager.imageNo).padStart(2, '0')}.jpg`)}
       alt={props.talk.villager.name}
       className={classes.avatar}
     />
@@ -71,7 +71,7 @@ function Talk(props) {
         <div className={`${classes.youDetail} ${classes.detail}`}>
           <div className={classes.detail2}>
             <Typography className={classes.date}>
-              {moment(props.talk.createdAt).format("H:mm")}
+              {moment(props.talk.createdAt).format('H:mm')}
             </Typography>
             <pre
               className={`${classes.content} ${classes.youContent}`}
@@ -92,7 +92,7 @@ function Talk(props) {
                 dangerouslySetInnerHTML={{ __html: sanitizeHtml(props.talk.content, sanitizeAllowed) }}
               />
               <Typography className={classes.date}>
-                {moment(props.talk.createdAt).format("H:mm")}
+                {moment(props.talk.createdAt).format('H:mm')}
               </Typography>
             </div>
           </div>

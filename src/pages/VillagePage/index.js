@@ -30,7 +30,7 @@ class VillagePage extends Component {
     const { classes } = this.props
     let bgImage = null
     if (this.props.village.imageNo >= 0) {
-      bgImage = require(`../../images/village/${String(this.props.village.imageNo).padStart(2, "0")}.jpeg`)
+      bgImage = require(`../../images/village/${String(this.props.village.imageNo).padStart(2, '0')}.jpeg`)
       bgImage = `linear-gradient(rgba(255,255,255,0.7), rgba(255, 255, 255, 0.7)), url(${bgImage})`
     }
     return (
