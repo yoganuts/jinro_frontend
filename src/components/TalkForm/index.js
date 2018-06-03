@@ -54,7 +54,11 @@ class TalkForm extends Component {
 
   createTalk(event) {
     event.preventDefault()
-    this.props.onSubmit(this.props.user.villagerCode, this.props.user.talkContent)
+    this.props.onSubmit(
+      this.props.user.villageId,
+      this.props.user.villagerCode,
+      this.props.user.talkContent
+    )
     this.formRef.reset()
     this.props.onChange(null)
   }

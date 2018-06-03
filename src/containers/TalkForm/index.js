@@ -18,8 +18,8 @@ const mapDispatchToProps = (dispatch) => ({
   onChange(talkContent) {
     dispatch(userActions.changeTalkContent(talkContent))
   },
-  onSubmit(villagerCode, talkContent) {
-    dispatch(talkActions.createTalk(villagerCode, talkContent))
+  onSubmit(villageId, villagerCode, talkContent) {
+    dispatch(talkActions.createTalk(villageId, villagerCode, talkContent))
   }
 })
 
