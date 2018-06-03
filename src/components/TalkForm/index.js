@@ -53,6 +53,8 @@ class TalkForm extends Component {
   createTalk(event) {
     event.preventDefault()
     this.props.onSubmit(this.props.user.villagerCode, this.props.user.talkContent)
+    this.formRef.reset()
+    this.props.onChange(null)
   }
 
   render() {
@@ -60,7 +62,11 @@ class TalkForm extends Component {
     return (
       <div className={classes.root}>
         <div className={classes.base}>
-          <form onSubmit={ (e) => this.createTalk(e) } className={classes.form}>
+          <form
+            onSubmit={ (e) => this.createTalk(e) }
+            className={classes.form}
+            ref={ (el) => this.formRef = el }
+          >
             <IconButton className={classes.icon}>
               {false && <StampIcon />}
             </IconButton>
