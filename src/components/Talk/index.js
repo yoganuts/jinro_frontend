@@ -60,7 +60,7 @@ function Talk(props) {
   const sanitizeAllowed = { allowedTags: ['a'] }
   const villagerAvatar = (
     <Avatar
-      src={require(`../../images/villager/${String(props.talk.villager.image_no).padStart(2, "0")}.jpg`)}
+      src={require(`../../images/villager/${String(props.talk.villager.imageNo).padStart(2, "0")}.jpg`)}
       alt={props.talk.villager.name}
       className={classes.avatar}
     />
@@ -71,7 +71,7 @@ function Talk(props) {
         <div className={`${classes.youDetail} ${classes.detail}`}>
           <div className={classes.detail2}>
             <Typography className={classes.date}>
-              {moment(props.talk.created_at).format("H:mm")}
+              {moment(props.talk.createdAt).format("H:mm")}
             </Typography>
             <pre
               className={`${classes.content} ${classes.youContent}`}
@@ -92,7 +92,7 @@ function Talk(props) {
                 dangerouslySetInnerHTML={{ __html: sanitizeHtml(props.talk.content, sanitizeAllowed) }}
               />
               <Typography className={classes.date}>
-                {moment(props.talk.created_at).format("H:mm")}
+                {moment(props.talk.createdAt).format("H:mm")}
               </Typography>
             </div>
           </div>
@@ -105,11 +105,11 @@ function Talk(props) {
 Talk.propTypes = {
   talk: PropTypes.shape({
     content: PropTypes.string.isRequired,
-    created_at: PropTypes.string.isRequired,
+    createdAt: PropTypes.string.isRequired,
     villager: PropTypes.shape({
       name: PropTypes.string.isRequired,
       code: PropTypes.string.isRequired,
-      image_no: PropTypes.number.isRequired
+      imageNo: PropTypes.number.isRequired
     })
   }),
   user: PropTypes.shape({

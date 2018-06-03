@@ -1,6 +1,8 @@
 import { createAction } from 'redux-actions'
 import axios from 'axios'
 import Cable from 'actioncable'
+import qs from 'qs'
+import humps from 'humps'
 
 import * as userActions from './User'
 
@@ -11,8 +13,9 @@ const receiveTalk = createAction('RECEIVE_TALK')
 export const fetchTalks = (villageId) => {
   return async (dispatch, getState) => {
     dispatch(startFetchTalks())
-    axios.get(process.env.REACT_APP_API_HOST + `/villages/${villageId}/talks?q[s]=created_at+desc`).then((response) => {
-      dispatch(receiveTalks(response.data))
+    const q = qs.stringify(humps.decamelizeKeys({ q: { s: 'created_at+desc' } }))
+    axios.get(process.env.REACT_APP_API_HOST + `/villages/${villageId}/talks?${q}`).then((response) => {
+      dispatch(receiveTalks(humps.camelizeKeys(response.data)))
       dispatch(userActions.setScrollBottom())
     }).catch((response) => {
       console.log(response)
@@ -23,20 +26,20 @@ export const fetchTalks = (villageId) => {
 export const createSocket = (villageId) => {
   return (dispatch, getState) => {
     let cable = Cable.createConsumer(process.env.REACT_APP_SOCKET_PATH)
-    this.talks = cable.subscriptions.create({
+    this.talks = cable.subscriptions.create(humps.decamelizeKeys({
       channel: 'TalkChannel',
-      village_id: villageId
-    }, {
+      villageId: villageId
+    }), {
       connected: () => {},
       received: (data) => {
-        dispatch(receiveTalk(data))
+        dispatch(receiveTalk(humps.camelizeKeys(data)))
         dispatch(userActions.setScrollBottom())
       },
       create: function(villagerCode, talkContent) {
-        this.perform('create', {
-          villager_code: villagerCode,
+        this.perform('create', humps.decamelizeKeys({
+          villagerCode: villagerCode,
           content: talkContent
-        })
+        }))
       }
     })
   }

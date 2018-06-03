@@ -29,8 +29,8 @@ class VillagePage extends Component {
   render() {
     const { classes } = this.props
     let bgImage = null
-    if (this.props.village.image_no >= 0) {
-      bgImage = require(`../../images/village/${String(this.props.village.image_no).padStart(2, "0")}.jpeg`)
+    if (this.props.village.imageNo >= 0) {
+      bgImage = require(`../../images/village/${String(this.props.village.imageNo).padStart(2, "0")}.jpeg`)
       bgImage = `linear-gradient(rgba(255,255,255,0.7), rgba(255, 255, 255, 0.7)), url(${bgImage})`
     }
     return (
@@ -54,7 +54,7 @@ VillagePage.propTypes = {
     villagerCode: PropTypes.string
   }),
   village: PropTypes.shape({
-    image_no: PropTypes.number
+    imageNo: PropTypes.number
   }),
   onMount: PropTypes.func.isRequired,
 }

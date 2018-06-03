@@ -7,7 +7,7 @@ export default function Villager(props) {
   return (
     <Chip
       avatar={<Avatar
-                src={require(`../../images/villager/${String(props.villager.image_no).padStart(2, "0")}.jpg`)}
+                src={require(`../../images/villager/${String(props.villager.imageNo).padStart(2, "0")}.jpg`)}
                 alt={props.villager.name}
               />}
       label={`${props.villager.name}${props.you ? "(you)" : ""}`}
@@ -18,7 +18,7 @@ export default function Villager(props) {
 Villager.propTypes = {
   villager: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    image_no: PropTypes.number.isRequired
+    imageNo: PropTypes.number.isRequired
   }),
   you: PropTypes.bool
 }

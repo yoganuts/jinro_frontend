@@ -33,7 +33,7 @@ class VillageList extends Component {
   }
 
   searchVillage(searchWord) {
-    this.props.onFetch({ name_cont: searchWord })
+    this.props.onFetch({ nameCont: searchWord })
   }
 
   render() {
@@ -47,7 +47,7 @@ class VillageList extends Component {
               <Fade in={true} key={village.id}>
                 <GridListTile>
                   <img
-                    src={require(`../../images/village/${String(village.image_no).padStart(2, "0")}.jpeg`)}
+                    src={require(`../../images/village/${String(village.imageNo).padStart(2, "0")}.jpeg`)}
                     alt={village.name}
                   />
                   <GridListTileBar

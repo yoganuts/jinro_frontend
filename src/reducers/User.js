@@ -32,7 +32,7 @@ export default handleActions({
     talkContent: null
   }),
   FINISH_CREATE_VILLAGER: (state, action) => {
-    saveCode(action.payload.village_id, action.payload.code)
+    saveCode(action.payload.villageId, action.payload.code)
     return Object.assign({}, state, {
       villagerCode: action.payload.code
     })
