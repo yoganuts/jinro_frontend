@@ -6,9 +6,9 @@ const initialState = {
   villagerCode: null,
   villageName: null,
   villageImageNo: "0",
-  villagerImageNo: "0",
   villagerName: null,
-  talkContent: null
+  villagerImageNo: "0",
+  talkContent: null,
 }
 
 const saveCode = (villageId, villagerCode) => {
