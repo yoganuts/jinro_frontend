@@ -30,8 +30,9 @@ const styles = {
     flex: 1,
     border: '1px #ccc solid',
     borderRadius: 16,
-    marginTop: 4,
     padding: '6px 10px 7px',
+    fontSize: 16,
+    transform: 'scale(0.8)',
   },
   icon: {
     width: 36,
