@@ -34,5 +34,11 @@
     "test": "jest",
     "eject": "react-scripts eject",
     "deploy": "yarn build && gh-pages -d build"
+  },
+  "devDependencies": {
+    "enzyme": "^3.3.0",
+    "eslint": "^4.19.1",
+    "eslint-plugin-react": "^7.8.2",
+    "jest": "^23.1.0"
   }
 }
