@@ -1,7 +1,7 @@
 import { handleActions } from 'redux-actions'
 
 const initialState = {
-  initialized: Boolean(process.env.REACT_APP_DISABLE_SPLASH || false),
+  initialized: Boolean(process.env.REACT_APP_DISABLE_SPLASH) || false,
   villageId: null,
   villagerCode: null,
   villageName: null,
