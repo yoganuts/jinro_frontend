@@ -44,7 +44,7 @@ const styles = {
     fontSize: 9,
     marginLeft: 5,
     marginRight: 5,
-    paddingBottom: 5,
+    paddingBottom: 15,
   },
   youDetail: {
     alignItems: 'flex-end'
