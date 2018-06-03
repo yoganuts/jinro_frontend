@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import TextField from '@material-ui/core/TextField'
 import IconButton from '@material-ui/core/IconButton'
 import SendIcon from '@material-ui/icons/Send'
+import StampIcon from '@material-ui/icons/TagFaces'
 import { withStyles } from '@material-ui/core/styles'
 
 const styles = {
@@ -10,17 +11,26 @@ const styles = {
     bottom: 0,
     position: 'fixed',
     width: '100%',
-    height: 42,
-    padding: 4,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  base: {
+    display: 'flex',
+    paddingLeft: 16,
+    paddingRight: 16,
+  },
+  form: {
+    width: '100%',
+    justifyContent: 'space-between',
+    display: 'flex',
   },
   text: {
-    width: '75%'
   },
   icon: {
-    width: 32,
-    height: 32
-  }
+    width: 36,
+    height: 36,
+  },
 }
 
 class TalkForm extends Component {
@@ -45,9 +55,13 @@ class TalkForm extends Component {
     const { classes } = this.props
     return (
       <div className={classes.root}>
-          <form onSubmit={ (e) => this.createTalk(e) }>
+        <div className={classes.base}>
+          <form onSubmit={ (e) => this.createTalk(e) } className={classes.form}>
+            <IconButton className={classes.icon}>
+              {false && <StampIcon />}
+            </IconButton>
             <TextField
-              placeholder="証言を入力(Let's talk!)"
+              fullWidth
               onChange={ (e) => this.updateTalkContent(e) }
               className={classes.text}
             />
@@ -55,6 +69,7 @@ class TalkForm extends Component {
               <SendIcon />
             </IconButton>
           </form>
+        </div>
       </div>
     )
   }
