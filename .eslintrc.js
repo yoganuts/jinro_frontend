@@ -1,5 +1,6 @@
 module.exports = {
     "env": {
+        "node": true,
         "browser": true,
         "es6": true
     },
@@ -17,7 +18,7 @@ module.exports = {
     "rules": {
         "indent": [
             "error",
-            4
+            2
         ],
         "linebreak-style": [
             "error",
@@ -30,6 +31,8 @@ module.exports = {
         "semi": [
             "error",
             "never"
-        ]
+        ],
+        "react/jsx-uses-react": 1,
+        "react/jsx-uses-vars": 1
     }
 };
