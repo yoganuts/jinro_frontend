@@ -26,6 +26,10 @@ const styles = {
     display: 'flex',
   },
   text: {
+    border: '1px #ccc solid',
+    borderRadius: 16,
+    marginTop: 3,
+    padding: '6px 10px 7px',
   },
   icon: {
     width: 36,
@@ -63,7 +67,12 @@ class TalkForm extends Component {
             <TextField
               fullWidth
               onChange={ (e) => this.updateTalkContent(e) }
-              className={classes.text}
+              InputProps={{
+                disableUnderline: true,
+                classes: {
+                  input: classes.text
+                },
+              }}
             />
             <IconButton type="submit" className={classes.icon}>
               <SendIcon />
