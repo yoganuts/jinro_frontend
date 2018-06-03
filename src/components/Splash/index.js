@@ -26,6 +26,8 @@ const styles = {
   text: {
     fontSize: 24,
     letterSpacing: '0.3em',
+    fontFamily: 'Dosis',
+    paddingLeft: 5,
   },
 }
 

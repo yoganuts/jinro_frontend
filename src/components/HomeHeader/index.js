@@ -26,6 +26,8 @@ const styles = {
   },
   title: {
     flex: 1,
+    fontFamily: 'Dosis',
+    letterSpacing: '0.1em',
   },
   logo: {
     width: 24,
