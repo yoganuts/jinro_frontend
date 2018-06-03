@@ -4,6 +4,7 @@ import Avatar from '@material-ui/core/Avatar'
 import Typography from '@material-ui/core/Typography'
 import moment from 'moment'
 import { withStyles } from '@material-ui/core/styles'
+import sanitizeHtml from 'sanitize-html'
 
 const styles = {
   root: {
@@ -36,6 +37,7 @@ const styles = {
     backgroundColor: 'white',
     padding: 10,
     borderRadius: 16,
+    whiteSpace: 'pre-wrap',
   },
   date: {
     fontSize: 9,
@@ -54,6 +56,7 @@ const styles = {
 function Talk(props) {
   const { classes } = props
   const isYou = props.user.villagerCode === props.talk.villager.code
+  const sanitizeAllowed = { allowedTags: ['a'] }
   const villagerAvatar = (
     <Avatar
       src={require(`../../images/villager/${String(props.talk.villager.image_no).padStart(2, "0")}.jpg`)}
@@ -69,9 +72,10 @@ function Talk(props) {
             <Typography className={classes.date}>
               {moment(props.talk.created_at).format("H:mm")}
             </Typography>
-            <Typography className={`${classes.content} ${classes.youContent}`}>
-              {props.talk.content}
-            </Typography>
+            <pre
+              className={`${classes.content} ${classes.youContent}`}
+              dangerouslySetInnerHTML={{ __html: sanitizeHtml(props.talk.content, sanitizeAllowed) }}
+            />
           </div>
         </div>
       ) : (
@@ -82,9 +86,10 @@ function Talk(props) {
               {props.talk.villager.name}
             </Typography>
             <div className={classes.detail2}>
-              <Typography className={classes.content}>
-                {props.talk.content}
-              </Typography>
+              <pre
+                className={classes.content}
+                dangerouslySetInnerHTML={{ __html: sanitizeHtml(props.talk.content, sanitizeAllowed) }}
+              />
               <Typography className={classes.date}>
                 {moment(props.talk.created_at).format("H:mm")}
               </Typography>

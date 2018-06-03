@@ -5,6 +5,7 @@ import IconButton from '@material-ui/core/IconButton'
 import SendIcon from '@material-ui/icons/Send'
 import StampIcon from '@material-ui/icons/TagFaces'
 import { withStyles } from '@material-ui/core/styles'
+import TextArea from 'react-textarea-autosize'
 
 const styles = {
   root: {
@@ -26,9 +27,10 @@ const styles = {
     display: 'flex',
   },
   text: {
+    flex: 1,
     border: '1px #ccc solid',
     borderRadius: 16,
-    marginTop: 3,
+    marginTop: 4,
     padding: '6px 10px 7px',
   },
   icon: {
@@ -70,15 +72,9 @@ class TalkForm extends Component {
             <IconButton className={classes.icon}>
               {false && <StampIcon />}
             </IconButton>
-            <TextField
-              fullWidth
+            <TextArea
+              className={classes.text}
               onChange={ (e) => this.updateTalkContent(e) }
-              InputProps={{
-                disableUnderline: true,
-                classes: {
-                  input: classes.text
-                },
-              }}
             />
             <IconButton type="submit" className={classes.icon}>
               <SendIcon />
