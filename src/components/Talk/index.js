@@ -36,6 +36,7 @@ const styles = {
   content: {
     backgroundColor: 'white',
     padding: 10,
+    margin: '0 0 10px 0',
     borderRadius: 16,
     whiteSpace: 'pre-wrap',
   },
