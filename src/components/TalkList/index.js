@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 
-import Talk from '../../containers/Talk'
+import Talk from '../Talk'
 import NotificationTalk from '../NotificationTalk'
 
 export default class TalkList extends Component {
@@ -15,7 +15,10 @@ export default class TalkList extends Component {
         {this.props.talks.slice().reverse().map(talk =>
           <Fragment key={talk.id}>
             {talk.villagerId ? (
-              <Talk talk={talk} />
+              <Talk
+                talk={talk}
+                isYou={this.props.user.villagerCode === talk.villager.code}
+              />
             ):(
               <NotificationTalk talk={talk} />
             )}
@@ -30,6 +33,7 @@ TalkList.propTypes = {
   talks: PropTypes.array.isRequired,
   user: PropTypes.shape({
     villageId: PropTypes.number.isRequired,
+    villagerCode: PropTypes.string.isRequired,
   }),
-  onMount: PropTypes.func.isRequired
+  onMount: PropTypes.func.isRequired,
 }

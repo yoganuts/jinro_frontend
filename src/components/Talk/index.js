@@ -40,6 +40,10 @@ const styles = {
     borderRadius: 16,
     whiteSpace: 'pre-wrap',
   },
+  stamp: {
+    width: 200,
+    height: 200,
+  },
   date: {
     fontSize: 9,
     marginLeft: 5,
@@ -56,7 +60,6 @@ const styles = {
 
 function Talk(props) {
   const { classes } = props
-  const isYou = props.user.villagerCode === props.talk.villager.code
   const sanitizeAllowed = { allowedTags: ['a'] }
   const villagerAvatar = (
     <Avatar
@@ -65,18 +68,34 @@ function Talk(props) {
       className={classes.avatar}
     />
   )
+  // talk or stamp
+  let content = null
+  if (props.talk.stampNo === null) {
+    content = (
+      <pre
+        className={`${classes.content} ${classes.youContent}`}
+        dangerouslySetInnerHTML={{ __html: sanitizeHtml(props.talk.content, sanitizeAllowed) }}
+      />
+    )
+  } else {
+    content = (
+      <img
+        src={require(`../../images/stamp/${String(props.talk.stampNo).padStart(3, '0')}.png`)}
+        alt="stamp"
+        className={classes.stamp}
+      />
+    )
+  }
+
   return (
     <div className={classes.root}>
-      {isYou ? (
+      {props.isYou ? (
         <div className={`${classes.youDetail} ${classes.detail}`}>
           <div className={classes.detail2}>
             <Typography className={classes.date}>
               {moment(props.talk.createdAt).format('H:mm')}
             </Typography>
-            <pre
-              className={`${classes.content} ${classes.youContent}`}
-              dangerouslySetInnerHTML={{ __html: sanitizeHtml(props.talk.content, sanitizeAllowed) }}
-            />
+            {content}
           </div>
         </div>
       ) : (
@@ -87,10 +106,7 @@ function Talk(props) {
               {props.talk.villager.name}
             </Typography>
             <div className={classes.detail2}>
-              <pre
-                className={classes.content}
-                dangerouslySetInnerHTML={{ __html: sanitizeHtml(props.talk.content, sanitizeAllowed) }}
-              />
+              {content}
               <Typography className={classes.date}>
                 {moment(props.talk.createdAt).format('H:mm')}
               </Typography>
@@ -104,7 +120,8 @@ function Talk(props) {
 
 Talk.propTypes = {
   talk: PropTypes.shape({
-    content: PropTypes.string.isRequired,
+    content: PropTypes.string,
+    stampNo: PropTypes.number,
     createdAt: PropTypes.string.isRequired,
     villager: PropTypes.shape({
       name: PropTypes.string.isRequired,
@@ -114,7 +131,8 @@ Talk.propTypes = {
   }),
   user: PropTypes.shape({
     villagerCode: PropTypes.string
-  })
+  }),
+  isYou: PropTypes.bool,
 }
 
 export default withStyles(styles)(Talk)

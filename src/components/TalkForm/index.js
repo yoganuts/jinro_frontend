@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import IconButton from '@material-ui/core/IconButton'
+import Slide from '@material-ui/core/Slide'
 import SendIcon from '@material-ui/icons/Send'
 import StampIcon from '@material-ui/icons/TagFaces'
 import { withStyles } from '@material-ui/core/styles'
 import TextArea from 'react-textarea-autosize'
+
+import StampList from '../StampList'
 
 const styles = {
   root: {
@@ -40,6 +43,13 @@ const styles = {
 }
 
 class TalkForm extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      showStamp: false,
+    }
+  }
+
   componentWillMount() {
     this.props.onMount(this.props.user.villageId)
   }
@@ -63,28 +73,39 @@ class TalkForm extends Component {
     this.props.onChange(null)
   }
 
+  toggleShowStamp() {
+    this.setState({ showStamp: !this.state.showStamp })
+  }
+
   render() {
     const { classes } = this.props
     return (
       <div className={classes.root}>
-        <div className={classes.base}>
-          <form
-            onSubmit={ (e) => this.createTalk(e) }
-            className={classes.form}
-            ref={ (el) => this.formRef = el }
-          >
-            <IconButton className={classes.icon}>
-              {false && <StampIcon />}
-            </IconButton>
-            <TextArea
-              className={classes.text}
-              onChange={ (e) => this.updateTalkContent(e) }
-            />
-            <IconButton type="submit" className={classes.icon}>
-              <SendIcon />
-            </IconButton>
-          </form>
+        <div>
+          <div className={classes.base}>
+            <form
+              onSubmit={ (e) => this.createTalk(e) }
+              className={classes.form}
+              ref={ (el) => this.formRef = el }
+            >
+              <IconButton className={classes.icon} onClick={ () => this.toggleShowStamp() }>
+                <StampIcon />
+              </IconButton>
+              <TextArea
+                className={classes.text}
+                onChange={ (e) => this.updateTalkContent(e) }
+              />
+              <IconButton type="submit" className={classes.icon}>
+                <SendIcon />
+              </IconButton>
+            </form>
+          </div>
         </div>
+        {this.state.showStamp &&
+          <Slide in direction="up">
+            <StampList />
+          </Slide>
+        }
       </div>
     )
   }

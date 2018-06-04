@@ -35,11 +35,12 @@ export const createSocket = (villageId) => {
         dispatch(receiveTalk(humps.camelizeKeys(data)))
         dispatch(userActions.setScrollBottom())
       },
-      create: function(villageId, villagerCode, talkContent) {
+      create: function(villageId, villagerCode, talkContent, stampNo) {
         this.perform('create', humps.decamelizeKeys({
           villageId: villageId,
           villagerCode: villagerCode,
           content: talkContent,
+          stampNo: stampNo,
         }))
       }
     })
@@ -50,8 +51,8 @@ export const removeSocket = (villageId) => {
   return () => this.talks.unsubscribe()
 }
 
-export const createTalk = (villageId, villagerCode, talkContent) => {
+export const createTalk = (villageId, villagerCode, talkContent, stampNo) => {
   return () => {
-    this.talks.create(villageId, villagerCode, talkContent)
+    this.talks.create(villageId, villagerCode, talkContent, stampNo)
   }
 }
