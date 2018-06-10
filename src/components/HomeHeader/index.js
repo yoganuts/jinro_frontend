@@ -28,6 +28,7 @@ const styles = {
     flex: 1,
     fontFamily: 'Dosis',
     letterSpacing: '0.1em',
+    animation: 'rotateX 4s infinite ease-in-out alternate',
   },
   logo: {
     width: 24,

@@ -8,6 +8,7 @@ import blueGrey from '@material-ui/core/colors/blueGrey'
 
 import App from './App'
 import createStore from './createStore'
+import './index.css'
 
 const history = createBrowserHistory()
 const store = createStore(history)
